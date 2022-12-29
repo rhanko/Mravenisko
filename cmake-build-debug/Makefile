@@ -250,6 +250,33 @@ server.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mravenisko.dir/build.make CMakeFiles/Mravenisko.dir/server.c.s
 .PHONY : server.c.s
 
+svet.o: svet.c.o
+
+.PHONY : svet.o
+
+# target to build an object file
+svet.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mravenisko.dir/build.make CMakeFiles/Mravenisko.dir/svet.c.o
+.PHONY : svet.c.o
+
+svet.i: svet.c.i
+
+.PHONY : svet.i
+
+# target to preprocess a source file
+svet.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mravenisko.dir/build.make CMakeFiles/Mravenisko.dir/svet.c.i
+.PHONY : svet.c.i
+
+svet.s: svet.c.s
+
+.PHONY : svet.s
+
+# target to generate assembly for a file
+svet.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mravenisko.dir/build.make CMakeFiles/Mravenisko.dir/svet.c.s
+.PHONY : svet.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -271,6 +298,9 @@ help:
 	@echo "... server.o"
 	@echo "... server.i"
 	@echo "... server.s"
+	@echo "... svet.o"
+	@echo "... svet.i"
+	@echo "... svet.s"
 .PHONY : help
 
 

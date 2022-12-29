@@ -3,5 +3,5 @@ project(Mravenisko C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(Mravenisko main.c client.c client.h definition.c definition.h server.c server.h)
+add_executable(Mravenisko main.c client.c client.h definition.c definition.h server.c server.h svet.c svet.h)
 target_link_libraries(Mravenisko pthread m)

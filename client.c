@@ -45,8 +45,10 @@ int client_main(int argc, char **argv) {
     if (connect(sock,(struct sockaddr *) &serverAddress, sizeof(serverAddress)) < 0) {
         printError("Chyba - connect.");
     }
-
     printf("Spojenie so serverom bolo nadviazane.\n");
+
+
+
     char buffer[BUFFER_LENGTH + 1];
     buffer[BUFFER_LENGTH] = '\0';
     int koniec = 0;
@@ -67,6 +69,7 @@ int client_main(int argc, char **argv) {
             koniec = 1;
         }
     }
+
     //uzavretie socketu <unistd.h>
     close(sock);
     printf("Spojenie so serverom bolo ukoncene.\n");
