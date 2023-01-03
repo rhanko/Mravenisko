@@ -16,3 +16,6 @@ CMakeFiles/Mravenisko.dir/server.c.o: ../definition.h
 CMakeFiles/Mravenisko.dir/server.c.o: ../server.c
 CMakeFiles/Mravenisko.dir/server.c.o: ../server.h
 
+CMakeFiles/Mravenisko.dir/world/world.c.o: ../world/world.c
+CMakeFiles/Mravenisko.dir/world/world.c.o: ../world/world.h
+

@@ -250,32 +250,32 @@ server.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mravenisko.dir/build.make CMakeFiles/Mravenisko.dir/server.c.s
 .PHONY : server.c.s
 
-svet.o: svet.c.o
+world/world.o: world/world.c.o
 
-.PHONY : svet.o
+.PHONY : world/world.o
 
 # target to build an object file
-svet.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mravenisko.dir/build.make CMakeFiles/Mravenisko.dir/svet.c.o
-.PHONY : svet.c.o
+world/world.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mravenisko.dir/build.make CMakeFiles/Mravenisko.dir/world/world.c.o
+.PHONY : world/world.c.o
 
-svet.i: svet.c.i
+world/world.i: world/world.c.i
 
-.PHONY : svet.i
+.PHONY : world/world.i
 
 # target to preprocess a source file
-svet.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mravenisko.dir/build.make CMakeFiles/Mravenisko.dir/svet.c.i
-.PHONY : svet.c.i
+world/world.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mravenisko.dir/build.make CMakeFiles/Mravenisko.dir/world/world.c.i
+.PHONY : world/world.c.i
 
-svet.s: svet.c.s
+world/world.s: world/world.c.s
 
-.PHONY : svet.s
+.PHONY : world/world.s
 
 # target to generate assembly for a file
-svet.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mravenisko.dir/build.make CMakeFiles/Mravenisko.dir/svet.c.s
-.PHONY : svet.c.s
+world/world.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mravenisko.dir/build.make CMakeFiles/Mravenisko.dir/world/world.c.s
+.PHONY : world/world.c.s
 
 # Help Target
 help:
@@ -298,9 +298,9 @@ help:
 	@echo "... server.o"
 	@echo "... server.i"
 	@echo "... server.s"
-	@echo "... svet.o"
-	@echo "... svet.i"
-	@echo "... svet.s"
+	@echo "... world/world.o"
+	@echo "... world/world.i"
+	@echo "... world/world.s"
 .PHONY : help
 
 

@@ -128,18 +128,18 @@ CMakeFiles/Mravenisko.dir/server.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Mravenisko.dir/server.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/hanko/tmp/tmp.Enb4A1lRTf/server.c -o CMakeFiles/Mravenisko.dir/server.c.s
 
-CMakeFiles/Mravenisko.dir/svet.c.o: CMakeFiles/Mravenisko.dir/flags.make
-CMakeFiles/Mravenisko.dir/svet.c.o: ../svet.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/hanko/tmp/tmp.Enb4A1lRTf/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/Mravenisko.dir/svet.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Mravenisko.dir/svet.c.o -c /home/hanko/tmp/tmp.Enb4A1lRTf/svet.c
+CMakeFiles/Mravenisko.dir/world/world.c.o: CMakeFiles/Mravenisko.dir/flags.make
+CMakeFiles/Mravenisko.dir/world/world.c.o: ../world/world.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/hanko/tmp/tmp.Enb4A1lRTf/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/Mravenisko.dir/world/world.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Mravenisko.dir/world/world.c.o -c /home/hanko/tmp/tmp.Enb4A1lRTf/world/world.c
 
-CMakeFiles/Mravenisko.dir/svet.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Mravenisko.dir/svet.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/hanko/tmp/tmp.Enb4A1lRTf/svet.c > CMakeFiles/Mravenisko.dir/svet.c.i
+CMakeFiles/Mravenisko.dir/world/world.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Mravenisko.dir/world/world.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/hanko/tmp/tmp.Enb4A1lRTf/world/world.c > CMakeFiles/Mravenisko.dir/world/world.c.i
 
-CMakeFiles/Mravenisko.dir/svet.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Mravenisko.dir/svet.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/hanko/tmp/tmp.Enb4A1lRTf/svet.c -o CMakeFiles/Mravenisko.dir/svet.c.s
+CMakeFiles/Mravenisko.dir/world/world.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Mravenisko.dir/world/world.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/hanko/tmp/tmp.Enb4A1lRTf/world/world.c -o CMakeFiles/Mravenisko.dir/world/world.c.s
 
 # Object files for target Mravenisko
 Mravenisko_OBJECTS = \
@@ -147,7 +147,7 @@ Mravenisko_OBJECTS = \
 "CMakeFiles/Mravenisko.dir/client.c.o" \
 "CMakeFiles/Mravenisko.dir/definition.c.o" \
 "CMakeFiles/Mravenisko.dir/server.c.o" \
-"CMakeFiles/Mravenisko.dir/svet.c.o"
+"CMakeFiles/Mravenisko.dir/world/world.c.o"
 
 # External object files for target Mravenisko
 Mravenisko_EXTERNAL_OBJECTS =
@@ -156,7 +156,7 @@ Mravenisko: CMakeFiles/Mravenisko.dir/main.c.o
 Mravenisko: CMakeFiles/Mravenisko.dir/client.c.o
 Mravenisko: CMakeFiles/Mravenisko.dir/definition.c.o
 Mravenisko: CMakeFiles/Mravenisko.dir/server.c.o
-Mravenisko: CMakeFiles/Mravenisko.dir/svet.c.o
+Mravenisko: CMakeFiles/Mravenisko.dir/world/world.c.o
 Mravenisko: CMakeFiles/Mravenisko.dir/build.make
 Mravenisko: CMakeFiles/Mravenisko.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/hanko/tmp/tmp.Enb4A1lRTf/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking C executable Mravenisko"

@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/home/hanko/tmp/tmp.Enb4A1lRTf/definition.c" "/home/hanko/tmp/tmp.Enb4A1lRTf/cmake-build-debug/CMakeFiles/Mravenisko.dir/definition.c.o"
   "/home/hanko/tmp/tmp.Enb4A1lRTf/main.c" "/home/hanko/tmp/tmp.Enb4A1lRTf/cmake-build-debug/CMakeFiles/Mravenisko.dir/main.c.o"
   "/home/hanko/tmp/tmp.Enb4A1lRTf/server.c" "/home/hanko/tmp/tmp.Enb4A1lRTf/cmake-build-debug/CMakeFiles/Mravenisko.dir/server.c.o"
-  "/home/hanko/tmp/tmp.Enb4A1lRTf/svet.c" "/home/hanko/tmp/tmp.Enb4A1lRTf/cmake-build-debug/CMakeFiles/Mravenisko.dir/svet.c.o"
+  "/home/hanko/tmp/tmp.Enb4A1lRTf/world/world.c" "/home/hanko/tmp/tmp.Enb4A1lRTf/cmake-build-debug/CMakeFiles/Mravenisko.dir/world/world.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

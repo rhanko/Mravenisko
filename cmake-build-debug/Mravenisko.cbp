@@ -97,10 +97,10 @@
 		<Unit filename="/home/hanko/tmp/tmp.Enb4A1lRTf/server.h">
 			<Option target="Mravenisko"/>
 		</Unit>
-		<Unit filename="/home/hanko/tmp/tmp.Enb4A1lRTf/svet.c">
+		<Unit filename="/home/hanko/tmp/tmp.Enb4A1lRTf/world/world.c">
 			<Option target="Mravenisko"/>
 		</Unit>
-		<Unit filename="/home/hanko/tmp/tmp.Enb4A1lRTf/svet.h">
+		<Unit filename="/home/hanko/tmp/tmp.Enb4A1lRTf/world/world.h">
 			<Option target="Mravenisko"/>
 		</Unit>
 		<Unit filename="/home/hanko/tmp/tmp.Enb4A1lRTf/CMakeLists.txt">

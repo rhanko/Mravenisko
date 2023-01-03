@@ -3,7 +3,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Mravenisko.dir/definition.c.o"
   "CMakeFiles/Mravenisko.dir/main.c.o"
   "CMakeFiles/Mravenisko.dir/server.c.o"
-  "CMakeFiles/Mravenisko.dir/svet.c.o"
+  "CMakeFiles/Mravenisko.dir/world/world.c.o"
   "Mravenisko"
   "Mravenisko.pdb"
 )

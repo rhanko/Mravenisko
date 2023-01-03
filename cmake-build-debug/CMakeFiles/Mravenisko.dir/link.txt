@@ -1,1 +1,1 @@
-/usr/bin/cc -g CMakeFiles/Mravenisko.dir/main.c.o CMakeFiles/Mravenisko.dir/client.c.o CMakeFiles/Mravenisko.dir/definition.c.o CMakeFiles/Mravenisko.dir/server.c.o CMakeFiles/Mravenisko.dir/svet.c.o -o Mravenisko  -lpthread -lm 
+/usr/bin/cc -g CMakeFiles/Mravenisko.dir/main.c.o CMakeFiles/Mravenisko.dir/client.c.o CMakeFiles/Mravenisko.dir/definition.c.o CMakeFiles/Mravenisko.dir/server.c.o CMakeFiles/Mravenisko.dir/world/world.c.o -o Mravenisko  -lpthread -lm 
