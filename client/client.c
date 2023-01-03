@@ -3,7 +3,7 @@
 //
 
 #include "client.h"
-#include "definition.h"
+#include "../definition.h"
 
 #include <stdio.h>
 #include <stdlib.h>

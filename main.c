@@ -1,5 +1,5 @@
-#include "client.h"
-#include "server.h"
+#include "client/client.h"
+#include "server/server.h"
 
 #include <stdio.h>
 #include <string.h>

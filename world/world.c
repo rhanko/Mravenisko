@@ -301,9 +301,3 @@ WORLD world_load(char *filename, char *nazov_sveta, int typ) {
 
     return world;
 }
-
-int world_play() {
-
-
-    return 0;
-}
