@@ -5,6 +5,8 @@
 #ifndef MRAVENISKO_DEFINITION_H
 #define MRAVENISKO_DEFINITION_H
 
+typedef enum {T, F} BOOLEAN;
+
 #define BUFFER_LENGTH 300
 extern char *endMsg;
 

@@ -1,4 +1,7 @@
 #include "world.h"
+#include "plocha/plocha.h"
+#include "mravce/mravec/mravec.h"
+#include "mravce/mravce.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -14,55 +17,14 @@
  * @return vrati svet
  */
 WORLD world_create(char *nazov, int velkost_x, int velkost_y, int pocet_mravcov, int logika) {
-    POLICKO **policka;
-    policka = (POLICKO **) malloc(velkost_x * sizeof(POLICKO *));
-    for (int i = 0; i < velkost_x; ++i) {
-        policka[i] = (POLICKO *) malloc(velkost_y * sizeof(POLICKO));
-    }
+    PLOCHA plocha = plocha_create(velkost_x, velkost_y);
 
-    MRAVEC *mravce;
-    mravce = (MRAVEC *) malloc(pocet_mravcov * sizeof(MRAVEC *));
-    int c = 0;
-
-    for (int i = 0; i < velkost_x; ++i) {
-        for (int j = 0; j < velkost_y; ++j) {
-            policka[i][j] = B;
-        }
-    }
-
-    for (int i = 0; i < pocet_mravcov; ++i) {
-        int cSmer = rand() % 4;
-        SMER smer = (cSmer == 0 ? HORE : (cSmer == 1 ? VPRAVO : (cSmer == 2 ? DOLE : VLAVO)));
-
-        mravce[i].x = 0;
-        mravce[i].y = 0;
-        mravce[i].smer = smer;
-    }
-
-    while (c < pocet_mravcov) {
-        int x = rand() % velkost_x;
-        int y = rand() % velkost_y;
-
-        BOOLEAN bool = F;
-        for (int i = 0; i < c; i++) {
-            if (mravce[i].x == x && mravce[i].y == y) {
-                bool = T;
-            }
-        }
-        if (bool == F) {
-            mravce[c].x = x;
-            mravce[c].y = y;
-            c++;
-        }
-    }
+    MRAVCE mravce = mravce_create(pocet_mravcov);
 
     WORLD svet = {
             nazov,
-            (POLICKO **) policka,
-            velkost_x,
-            velkost_y,
-            (MRAVEC *) mravce,
-            pocet_mravcov,
+            &plocha,
+            &mravce,
             logika,
             0
     };
@@ -90,23 +52,19 @@ int world_save(char *filename, WORLD world, int typ) {
     } else {
         fprintf(subor, "Názov vzoru: %s {\n", world.nazov);
     }
-    fprintf(subor, "\tVeľkost X: %d\n", world.x);
-    fprintf(subor, "\tVeľkost Y: %d\n", world.y);
+    fprintf(subor, "\tVeľkost X: %d\n", world.plocha->x);
+    fprintf(subor, "\tVeľkost Y: %d\n", world.plocha->y);
 
     if(typ == 0) {
-        fprintf(subor, "\tPočet mravcov: %d\n", world.pocet_mravcov);
+        fprintf(subor, "\tPočet mravcov: %d\n", world.mravce->pocet_mravcov);
         fprintf(subor, "\tLogika: %d\n", world.logika);
         fprintf(subor, "\tPočet dní: %d\n", world.pocet_dni);
     }
     fprintf(subor, "\tPolíčka {\n");
 
-    for (int i = 0; i < world.x; ++i) {
-        for (int j = 0; j < world.y; ++j) {
-            if (world.policka[i][j] == C) {
-                fprintf(subor, "\t\t%d, %d: C\n", i, j);
-            } else {
-                fprintf(subor, "\t\t%d, %d: B\n", i, j);
-            }
+    for (int i = 0; i < world.plocha->x; ++i) {
+        for (int j = 0; j < world.plocha->y; ++j) {
+            fprintf(subor, "\t\t%d, %d: %s\n", i, j, dajFarbuPolicka(world.plocha->policka[i][j]));
         }
     }
     fprintf(subor, "\t}\n");
@@ -114,11 +72,8 @@ int world_save(char *filename, WORLD world, int typ) {
     if(typ == 0) {
         fprintf(subor, "\tMravce {\n");
 
-        for (int i = 0; i < world.pocet_mravcov; ++i) {
-            SMER sSmer = world.mravce[i].smer;
-            char *smer = (sSmer == HORE ? "HORE" : (sSmer == VPRAVO ? "VPRAVO" : (sSmer == DOLE ? "DOLE" : "VLAVO")));
-
-            fprintf(subor, "\t\t%d, %d, %s\n", world.mravce[i].x, world.mravce[i].y, smer);
+        for (int i = 0; i < world.mravce->pocet_mravcov; ++i) {
+            fprintf(subor, "\t\t%d, %d, %s\n", world.mravce->mravec[i]->x, world.mravce->mravec[i]->y, mravec_daj_smer(world.mravce->mravec[i]));
         }
         fprintf(subor, "\t}\n");
     }
@@ -205,7 +160,7 @@ WORLD world_load(char *filename, char *nazov_sveta, int typ) {
     char *cPocet_dni = malloc(5);
     int pocet_dni = 0;
 
-    //alokacia iba ak je to svet nie vzor
+    //alokacia iba ak je to svet a nie vzor
     if (typ == 0) {
         fgets(line, 100, subor);
         strcpy(cPocet_mravcov, line + 17);
@@ -224,24 +179,19 @@ WORLD world_load(char *filename, char *nazov_sveta, int typ) {
     fgets(line, 100, subor);
 
 
-    //POLICKA
-    POLICKO **policka;
-    policka = (POLICKO **) malloc(x * sizeof(POLICKO *));
-    for (int i = 0; i < x; ++i) {
-        policka[i] = (POLICKO *) malloc(y * sizeof(POLICKO));
-    }
+    //PLOCHA
+    PLOCHA plocha = plocha_create(x,y);
 
     for (int i = 0; i < x; ++i) {
         for (int j = 0; j < y; ++j) {
             fgets(line, 100, subor);
             unsigned int position = strcspn(line, "\n") - 1;
-            policka[i][j] = (line[position] == 'C' ? C : B);
+            nastavFarbuPolicka(line[position], plocha.policka[i][j]);
         }
     }
 
     //MRAVCE
-    MRAVEC *mravce;
-    mravce = (MRAVEC *) malloc(pocet_mravcov * sizeof(MRAVEC *));
+    MRAVCE mravce = mravce_create(pocet_mravcov);
 
     if (typ == 0) {
         for (int i = 0; i < 2; ++i) {
@@ -279,10 +229,11 @@ WORLD world_load(char *filename, char *nazov_sveta, int typ) {
 
             char *ctm = malloc(10);
             strcpy(ctm, line + odkial);
-
-            mravce[i].x = xm;
-            mravce[i].y = ym;
-            mravce[i].smer = (strcmp(ctm, "HORE\n") == 0 ? HORE : (strcmp(ctm, "VPRAVO\n") == 0 ? VPRAVO : (strcmp(ctm, "DOLE") == 0 ? DOLE : VLAVO)));
+            ctm = ctm -1;
+            mravce.mravec[i]->x = xm;
+            mravce.mravec[i]->y = ym;
+            mravce.mravec[i]->existuje = T;
+            mravec_nastav_smer(mravce.mravec[i], ctm);
         }
     }
 
@@ -290,11 +241,8 @@ WORLD world_load(char *filename, char *nazov_sveta, int typ) {
 
     WORLD world = {
             meno_sveta,
-            policka,
-            x,
-            y,
-            mravce,
-            pocet_mravcov,
+            &plocha,
+            &mravce,
             logika,
             pocet_dni
     };

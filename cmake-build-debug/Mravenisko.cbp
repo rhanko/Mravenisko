@@ -76,10 +76,10 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/hanko/tmp/tmp.Enb4A1lRTf/client.c">
+		<Unit filename="/home/hanko/tmp/tmp.Enb4A1lRTf/client/client.c">
 			<Option target="Mravenisko"/>
 		</Unit>
-		<Unit filename="/home/hanko/tmp/tmp.Enb4A1lRTf/client.h">
+		<Unit filename="/home/hanko/tmp/tmp.Enb4A1lRTf/client/client.h">
 			<Option target="Mravenisko"/>
 		</Unit>
 		<Unit filename="/home/hanko/tmp/tmp.Enb4A1lRTf/definition.c">
@@ -91,10 +91,34 @@
 		<Unit filename="/home/hanko/tmp/tmp.Enb4A1lRTf/main.c">
 			<Option target="Mravenisko"/>
 		</Unit>
-		<Unit filename="/home/hanko/tmp/tmp.Enb4A1lRTf/server.c">
+		<Unit filename="/home/hanko/tmp/tmp.Enb4A1lRTf/server/server.c">
 			<Option target="Mravenisko"/>
 		</Unit>
-		<Unit filename="/home/hanko/tmp/tmp.Enb4A1lRTf/server.h">
+		<Unit filename="/home/hanko/tmp/tmp.Enb4A1lRTf/server/server.h">
+			<Option target="Mravenisko"/>
+		</Unit>
+		<Unit filename="/home/hanko/tmp/tmp.Enb4A1lRTf/world/mravce/mravce.c">
+			<Option target="Mravenisko"/>
+		</Unit>
+		<Unit filename="/home/hanko/tmp/tmp.Enb4A1lRTf/world/mravce/mravce.h">
+			<Option target="Mravenisko"/>
+		</Unit>
+		<Unit filename="/home/hanko/tmp/tmp.Enb4A1lRTf/world/mravce/mravec/mravec.c">
+			<Option target="Mravenisko"/>
+		</Unit>
+		<Unit filename="/home/hanko/tmp/tmp.Enb4A1lRTf/world/mravce/mravec/mravec.h">
+			<Option target="Mravenisko"/>
+		</Unit>
+		<Unit filename="/home/hanko/tmp/tmp.Enb4A1lRTf/world/plocha/plocha.c">
+			<Option target="Mravenisko"/>
+		</Unit>
+		<Unit filename="/home/hanko/tmp/tmp.Enb4A1lRTf/world/plocha/plocha.h">
+			<Option target="Mravenisko"/>
+		</Unit>
+		<Unit filename="/home/hanko/tmp/tmp.Enb4A1lRTf/world/plocha/policko/policko.c">
+			<Option target="Mravenisko"/>
+		</Unit>
+		<Unit filename="/home/hanko/tmp/tmp.Enb4A1lRTf/world/plocha/policko/policko.h">
 			<Option target="Mravenisko"/>
 		</Unit>
 		<Unit filename="/home/hanko/tmp/tmp.Enb4A1lRTf/world/world.c">

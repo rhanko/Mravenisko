@@ -6,17 +6,25 @@
 
 #IncludeRegexTransform: 
 
+/home/hanko/tmp/tmp.Enb4A1lRTf/world/plocha/plocha.h
+policko/policko.h
+/home/hanko/tmp/tmp.Enb4A1lRTf/world/plocha/policko/policko.h
+
+/home/hanko/tmp/tmp.Enb4A1lRTf/world/plocha/policko/policko.h
+
 /home/hanko/tmp/tmp.Enb4A1lRTf/world/world.c
 world.h
 /home/hanko/tmp/tmp.Enb4A1lRTf/world/world.h
+plocha/plocha.h
+/home/hanko/tmp/tmp.Enb4A1lRTf/world/plocha/plocha.h
 stdio.h
 -
 stdlib.h
--
-time.h
 -
 string.h
 -
 
 /home/hanko/tmp/tmp.Enb4A1lRTf/world/world.h
+plocha/plocha.h
+/home/hanko/tmp/tmp.Enb4A1lRTf/world/plocha/plocha.h
 

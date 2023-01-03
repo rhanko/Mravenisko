@@ -142,32 +142,32 @@ Mravenisko/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mravenisko.dir/build.make CMakeFiles/Mravenisko.dir/build
 .PHONY : Mravenisko/fast
 
-client.o: client.c.o
+client/client.o: client/client.c.o
 
-.PHONY : client.o
+.PHONY : client/client.o
 
 # target to build an object file
-client.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mravenisko.dir/build.make CMakeFiles/Mravenisko.dir/client.c.o
-.PHONY : client.c.o
+client/client.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mravenisko.dir/build.make CMakeFiles/Mravenisko.dir/client/client.c.o
+.PHONY : client/client.c.o
 
-client.i: client.c.i
+client/client.i: client/client.c.i
 
-.PHONY : client.i
+.PHONY : client/client.i
 
 # target to preprocess a source file
-client.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mravenisko.dir/build.make CMakeFiles/Mravenisko.dir/client.c.i
-.PHONY : client.c.i
+client/client.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mravenisko.dir/build.make CMakeFiles/Mravenisko.dir/client/client.c.i
+.PHONY : client/client.c.i
 
-client.s: client.c.s
+client/client.s: client/client.c.s
 
-.PHONY : client.s
+.PHONY : client/client.s
 
 # target to generate assembly for a file
-client.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mravenisko.dir/build.make CMakeFiles/Mravenisko.dir/client.c.s
-.PHONY : client.c.s
+client/client.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mravenisko.dir/build.make CMakeFiles/Mravenisko.dir/client/client.c.s
+.PHONY : client/client.c.s
 
 definition.o: definition.c.o
 
@@ -223,32 +223,140 @@ main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mravenisko.dir/build.make CMakeFiles/Mravenisko.dir/main.c.s
 .PHONY : main.c.s
 
-server.o: server.c.o
+server/server.o: server/server.c.o
 
-.PHONY : server.o
+.PHONY : server/server.o
 
 # target to build an object file
-server.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mravenisko.dir/build.make CMakeFiles/Mravenisko.dir/server.c.o
-.PHONY : server.c.o
+server/server.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mravenisko.dir/build.make CMakeFiles/Mravenisko.dir/server/server.c.o
+.PHONY : server/server.c.o
 
-server.i: server.c.i
+server/server.i: server/server.c.i
 
-.PHONY : server.i
+.PHONY : server/server.i
 
 # target to preprocess a source file
-server.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mravenisko.dir/build.make CMakeFiles/Mravenisko.dir/server.c.i
-.PHONY : server.c.i
+server/server.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mravenisko.dir/build.make CMakeFiles/Mravenisko.dir/server/server.c.i
+.PHONY : server/server.c.i
 
-server.s: server.c.s
+server/server.s: server/server.c.s
 
-.PHONY : server.s
+.PHONY : server/server.s
 
 # target to generate assembly for a file
-server.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mravenisko.dir/build.make CMakeFiles/Mravenisko.dir/server.c.s
-.PHONY : server.c.s
+server/server.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mravenisko.dir/build.make CMakeFiles/Mravenisko.dir/server/server.c.s
+.PHONY : server/server.c.s
+
+world/mravce/mravce.o: world/mravce/mravce.c.o
+
+.PHONY : world/mravce/mravce.o
+
+# target to build an object file
+world/mravce/mravce.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mravenisko.dir/build.make CMakeFiles/Mravenisko.dir/world/mravce/mravce.c.o
+.PHONY : world/mravce/mravce.c.o
+
+world/mravce/mravce.i: world/mravce/mravce.c.i
+
+.PHONY : world/mravce/mravce.i
+
+# target to preprocess a source file
+world/mravce/mravce.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mravenisko.dir/build.make CMakeFiles/Mravenisko.dir/world/mravce/mravce.c.i
+.PHONY : world/mravce/mravce.c.i
+
+world/mravce/mravce.s: world/mravce/mravce.c.s
+
+.PHONY : world/mravce/mravce.s
+
+# target to generate assembly for a file
+world/mravce/mravce.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mravenisko.dir/build.make CMakeFiles/Mravenisko.dir/world/mravce/mravce.c.s
+.PHONY : world/mravce/mravce.c.s
+
+world/mravce/mravec/mravec.o: world/mravce/mravec/mravec.c.o
+
+.PHONY : world/mravce/mravec/mravec.o
+
+# target to build an object file
+world/mravce/mravec/mravec.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mravenisko.dir/build.make CMakeFiles/Mravenisko.dir/world/mravce/mravec/mravec.c.o
+.PHONY : world/mravce/mravec/mravec.c.o
+
+world/mravce/mravec/mravec.i: world/mravce/mravec/mravec.c.i
+
+.PHONY : world/mravce/mravec/mravec.i
+
+# target to preprocess a source file
+world/mravce/mravec/mravec.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mravenisko.dir/build.make CMakeFiles/Mravenisko.dir/world/mravce/mravec/mravec.c.i
+.PHONY : world/mravce/mravec/mravec.c.i
+
+world/mravce/mravec/mravec.s: world/mravce/mravec/mravec.c.s
+
+.PHONY : world/mravce/mravec/mravec.s
+
+# target to generate assembly for a file
+world/mravce/mravec/mravec.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mravenisko.dir/build.make CMakeFiles/Mravenisko.dir/world/mravce/mravec/mravec.c.s
+.PHONY : world/mravce/mravec/mravec.c.s
+
+world/plocha/plocha.o: world/plocha/plocha.c.o
+
+.PHONY : world/plocha/plocha.o
+
+# target to build an object file
+world/plocha/plocha.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mravenisko.dir/build.make CMakeFiles/Mravenisko.dir/world/plocha/plocha.c.o
+.PHONY : world/plocha/plocha.c.o
+
+world/plocha/plocha.i: world/plocha/plocha.c.i
+
+.PHONY : world/plocha/plocha.i
+
+# target to preprocess a source file
+world/plocha/plocha.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mravenisko.dir/build.make CMakeFiles/Mravenisko.dir/world/plocha/plocha.c.i
+.PHONY : world/plocha/plocha.c.i
+
+world/plocha/plocha.s: world/plocha/plocha.c.s
+
+.PHONY : world/plocha/plocha.s
+
+# target to generate assembly for a file
+world/plocha/plocha.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mravenisko.dir/build.make CMakeFiles/Mravenisko.dir/world/plocha/plocha.c.s
+.PHONY : world/plocha/plocha.c.s
+
+world/plocha/policko/policko.o: world/plocha/policko/policko.c.o
+
+.PHONY : world/plocha/policko/policko.o
+
+# target to build an object file
+world/plocha/policko/policko.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mravenisko.dir/build.make CMakeFiles/Mravenisko.dir/world/plocha/policko/policko.c.o
+.PHONY : world/plocha/policko/policko.c.o
+
+world/plocha/policko/policko.i: world/plocha/policko/policko.c.i
+
+.PHONY : world/plocha/policko/policko.i
+
+# target to preprocess a source file
+world/plocha/policko/policko.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mravenisko.dir/build.make CMakeFiles/Mravenisko.dir/world/plocha/policko/policko.c.i
+.PHONY : world/plocha/policko/policko.c.i
+
+world/plocha/policko/policko.s: world/plocha/policko/policko.c.s
+
+.PHONY : world/plocha/policko/policko.s
+
+# target to generate assembly for a file
+world/plocha/policko/policko.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mravenisko.dir/build.make CMakeFiles/Mravenisko.dir/world/plocha/policko/policko.c.s
+.PHONY : world/plocha/policko/policko.c.s
 
 world/world.o: world/world.c.o
 
@@ -286,18 +394,30 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Mravenisko"
-	@echo "... client.o"
-	@echo "... client.i"
-	@echo "... client.s"
+	@echo "... client/client.o"
+	@echo "... client/client.i"
+	@echo "... client/client.s"
 	@echo "... definition.o"
 	@echo "... definition.i"
 	@echo "... definition.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... server.o"
-	@echo "... server.i"
-	@echo "... server.s"
+	@echo "... server/server.o"
+	@echo "... server/server.i"
+	@echo "... server/server.s"
+	@echo "... world/mravce/mravce.o"
+	@echo "... world/mravce/mravce.i"
+	@echo "... world/mravce/mravce.s"
+	@echo "... world/mravce/mravec/mravec.o"
+	@echo "... world/mravce/mravec/mravec.i"
+	@echo "... world/mravce/mravec/mravec.s"
+	@echo "... world/plocha/plocha.o"
+	@echo "... world/plocha/plocha.i"
+	@echo "... world/plocha/plocha.s"
+	@echo "... world/plocha/policko/policko.o"
+	@echo "... world/plocha/policko/policko.i"
+	@echo "... world/plocha/policko/policko.s"
 	@echo "... world/world.o"
 	@echo "... world/world.i"
 	@echo "... world/world.s"
