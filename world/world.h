@@ -15,7 +15,7 @@ typedef struct world {
     PLOCHA* plocha;
     MRAVCE* mravce;
     int logika;
-    int pocet_dni;
+    int *pocet_dni;
 } WORLD;
 
 WORLD world_create(char *nazov, int velkost_x, int velkost_y, int pocet_mravcov, int logika);

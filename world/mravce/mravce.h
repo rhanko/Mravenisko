@@ -10,6 +10,7 @@
 typedef struct mravce {
     MRAVEC* *mravec;
     int pocet_mravcov;
+    int* pocet_zivych_mravcov;
 } MRAVCE;
 
 MRAVCE mravce_create(int pocet_mravcov);

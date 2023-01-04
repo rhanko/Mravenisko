@@ -4,6 +4,14 @@
 CMakeFiles/Mravenisko.dir/client/client.c.o: ../client/client.c
 CMakeFiles/Mravenisko.dir/client/client.c.o: ../client/client.h
 CMakeFiles/Mravenisko.dir/client/client.c.o: ../definition.h
+CMakeFiles/Mravenisko.dir/client/client.c.o: ../world/mravce/mravce.h
+CMakeFiles/Mravenisko.dir/client/client.c.o: ../world/mravce/mravec/mravec.h
+CMakeFiles/Mravenisko.dir/client/client.c.o: ../world/plocha/plocha.h
+CMakeFiles/Mravenisko.dir/client/client.c.o: ../world/plocha/policko/policko.h
+CMakeFiles/Mravenisko.dir/client/client.c.o: ../world/vlakna/worldPlayer/world_player.h
+CMakeFiles/Mravenisko.dir/client/client.c.o: ../world/vlakna/worldThreadData.h
+CMakeFiles/Mravenisko.dir/client/client.c.o: ../world/vlakna/worldUser/world_user.h
+CMakeFiles/Mravenisko.dir/client/client.c.o: ../world/world.h
 
 CMakeFiles/Mravenisko.dir/definition.c.o: ../definition.c
 CMakeFiles/Mravenisko.dir/definition.c.o: ../definition.h
@@ -16,6 +24,15 @@ CMakeFiles/Mravenisko.dir/server/server.c.o: ../definition.h
 CMakeFiles/Mravenisko.dir/server/server.c.o: ../server/server.c
 CMakeFiles/Mravenisko.dir/server/server.c.o: ../server/server.h
 
+CMakeFiles/Mravenisko.dir/world/mravce/mravce.c.o: ../definition.h
+CMakeFiles/Mravenisko.dir/world/mravce/mravce.c.o: ../world/mravce/mravce.c
+CMakeFiles/Mravenisko.dir/world/mravce/mravce.c.o: ../world/mravce/mravce.h
+CMakeFiles/Mravenisko.dir/world/mravce/mravce.c.o: ../world/mravce/mravec/mravec.h
+
+CMakeFiles/Mravenisko.dir/world/mravce/mravec/mravec.c.o: ../definition.h
+CMakeFiles/Mravenisko.dir/world/mravce/mravec/mravec.c.o: ../world/mravce/mravec/mravec.c
+CMakeFiles/Mravenisko.dir/world/mravce/mravec/mravec.c.o: ../world/mravce/mravec/mravec.h
+
 CMakeFiles/Mravenisko.dir/world/plocha/plocha.c.o: ../world/plocha/plocha.c
 CMakeFiles/Mravenisko.dir/world/plocha/plocha.c.o: ../world/plocha/plocha.h
 CMakeFiles/Mravenisko.dir/world/plocha/plocha.c.o: ../world/plocha/policko/policko.h
@@ -23,6 +40,30 @@ CMakeFiles/Mravenisko.dir/world/plocha/plocha.c.o: ../world/plocha/policko/polic
 CMakeFiles/Mravenisko.dir/world/plocha/policko/policko.c.o: ../world/plocha/policko/policko.c
 CMakeFiles/Mravenisko.dir/world/plocha/policko/policko.c.o: ../world/plocha/policko/policko.h
 
+CMakeFiles/Mravenisko.dir/world/vlakna/worldPlayer/world_player.c.o: ../definition.h
+CMakeFiles/Mravenisko.dir/world/vlakna/worldPlayer/world_player.c.o: ../world/mravce/mravce.h
+CMakeFiles/Mravenisko.dir/world/vlakna/worldPlayer/world_player.c.o: ../world/mravce/mravec/mravec.h
+CMakeFiles/Mravenisko.dir/world/vlakna/worldPlayer/world_player.c.o: ../world/plocha/plocha.h
+CMakeFiles/Mravenisko.dir/world/vlakna/worldPlayer/world_player.c.o: ../world/plocha/policko/policko.h
+CMakeFiles/Mravenisko.dir/world/vlakna/worldPlayer/world_player.c.o: ../world/vlakna/worldPlayer/world_player.c
+CMakeFiles/Mravenisko.dir/world/vlakna/worldPlayer/world_player.c.o: ../world/vlakna/worldPlayer/world_player.h
+CMakeFiles/Mravenisko.dir/world/vlakna/worldPlayer/world_player.c.o: ../world/vlakna/worldThreadData.h
+CMakeFiles/Mravenisko.dir/world/vlakna/worldPlayer/world_player.c.o: ../world/world.h
+
+CMakeFiles/Mravenisko.dir/world/vlakna/worldUser/world_user.c.o: ../definition.h
+CMakeFiles/Mravenisko.dir/world/vlakna/worldUser/world_user.c.o: ../world/mravce/mravce.h
+CMakeFiles/Mravenisko.dir/world/vlakna/worldUser/world_user.c.o: ../world/mravce/mravec/mravec.h
+CMakeFiles/Mravenisko.dir/world/vlakna/worldUser/world_user.c.o: ../world/plocha/plocha.h
+CMakeFiles/Mravenisko.dir/world/vlakna/worldUser/world_user.c.o: ../world/plocha/policko/policko.h
+CMakeFiles/Mravenisko.dir/world/vlakna/worldUser/world_user.c.o: ../world/vlakna/worldPlayer/world_player.h
+CMakeFiles/Mravenisko.dir/world/vlakna/worldUser/world_user.c.o: ../world/vlakna/worldThreadData.h
+CMakeFiles/Mravenisko.dir/world/vlakna/worldUser/world_user.c.o: ../world/vlakna/worldUser/world_user.c
+CMakeFiles/Mravenisko.dir/world/vlakna/worldUser/world_user.c.o: ../world/vlakna/worldUser/world_user.h
+CMakeFiles/Mravenisko.dir/world/vlakna/worldUser/world_user.c.o: ../world/world.h
+
+CMakeFiles/Mravenisko.dir/world/world.c.o: ../definition.h
+CMakeFiles/Mravenisko.dir/world/world.c.o: ../world/mravce/mravce.h
+CMakeFiles/Mravenisko.dir/world/world.c.o: ../world/mravce/mravec/mravec.h
 CMakeFiles/Mravenisko.dir/world/world.c.o: ../world/plocha/plocha.h
 CMakeFiles/Mravenisko.dir/world/world.c.o: ../world/plocha/policko/policko.h
 CMakeFiles/Mravenisko.dir/world/world.c.o: ../world/world.c

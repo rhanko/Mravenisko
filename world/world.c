@@ -19,7 +19,7 @@
 WORLD world_create(char *nazov, int velkost_x, int velkost_y, int pocet_mravcov, int logika) {
     PLOCHA plocha = plocha_create(velkost_x, velkost_y);
 
-    MRAVCE mravce = mravce_create(pocet_mravcov);
+    MRAVCE mravce = mravce_random_generate(pocet_mravcov, velkost_x, velkost_y);
 
     WORLD svet = {
             nazov,
@@ -56,9 +56,9 @@ int world_save(char *filename, WORLD world, int typ) {
     fprintf(subor, "\tVeľkost Y: %d\n", world.plocha->y);
 
     if(typ == 0) {
-        fprintf(subor, "\tPočet mravcov: %d\n", world.mravce->pocet_mravcov);
+        fprintf(subor, "\tPočet mravcov: %d\n", *world.mravce->pocet_zivych_mravcov);
         fprintf(subor, "\tLogika: %d\n", world.logika);
-        fprintf(subor, "\tPočet dní: %d\n", world.pocet_dni);
+        fprintf(subor, "\tPočet dní: %d\n", *world.pocet_dni);
     }
     fprintf(subor, "\tPolíčka {\n");
 
@@ -73,7 +73,9 @@ int world_save(char *filename, WORLD world, int typ) {
         fprintf(subor, "\tMravce {\n");
 
         for (int i = 0; i < world.mravce->pocet_mravcov; ++i) {
-            fprintf(subor, "\t\t%d, %d, %s\n", world.mravce->mravec[i]->x, world.mravce->mravec[i]->y, mravec_daj_smer(world.mravce->mravec[i]));
+            if(*world.mravce->mravec[i]->existuje == T) {
+                fprintf(subor, "\t\t%d, %d, %s\n", *world.mravce->mravec[i]->x, *world.mravce->mravec[i]->y, mravec_daj_smer(world.mravce->mravec[i]));
+            }
         }
         fprintf(subor, "\t}\n");
     }
@@ -105,9 +107,8 @@ WORLD world_load(char *filename, char *nazov_sveta, int typ) {
         NAZOV = "Názov vzoru";
     }
 
-    char *meno_sveta = "";
-
     //hlada sa svet/ vzor na zaklade hladaneho nazvu
+    char *meno_sveta = "";
     char line[100];
     while (fgets(line, 100, subor) != NULL) {
         char *cSvet = malloc(12);
@@ -178,7 +179,6 @@ WORLD world_load(char *filename, char *nazov_sveta, int typ) {
     //Vynechanie riadku
     fgets(line, 100, subor);
 
-
     //PLOCHA
     PLOCHA plocha = plocha_create(x,y);
 
@@ -230,9 +230,9 @@ WORLD world_load(char *filename, char *nazov_sveta, int typ) {
             char *ctm = malloc(10);
             strcpy(ctm, line + odkial);
             ctm = ctm -1;
-            mravce.mravec[i]->x = xm;
-            mravce.mravec[i]->y = ym;
-            mravce.mravec[i]->existuje = T;
+            *mravce.mravec[i]->x = xm;
+            *mravce.mravec[i]->y = ym;
+            *mravce.mravec[i]->existuje = T;
             mravec_nastav_smer(mravce.mravec[i], ctm);
         }
     }
@@ -244,7 +244,7 @@ WORLD world_load(char *filename, char *nazov_sveta, int typ) {
             &plocha,
             &mravce,
             logika,
-            pocet_dni
+            &pocet_dni
     };
 
     return world;

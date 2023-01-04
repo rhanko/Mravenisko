@@ -358,6 +358,60 @@ world/plocha/policko/policko.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mravenisko.dir/build.make CMakeFiles/Mravenisko.dir/world/plocha/policko/policko.c.s
 .PHONY : world/plocha/policko/policko.c.s
 
+world/vlakna/worldPlayer/world_player.o: world/vlakna/worldPlayer/world_player.c.o
+
+.PHONY : world/vlakna/worldPlayer/world_player.o
+
+# target to build an object file
+world/vlakna/worldPlayer/world_player.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mravenisko.dir/build.make CMakeFiles/Mravenisko.dir/world/vlakna/worldPlayer/world_player.c.o
+.PHONY : world/vlakna/worldPlayer/world_player.c.o
+
+world/vlakna/worldPlayer/world_player.i: world/vlakna/worldPlayer/world_player.c.i
+
+.PHONY : world/vlakna/worldPlayer/world_player.i
+
+# target to preprocess a source file
+world/vlakna/worldPlayer/world_player.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mravenisko.dir/build.make CMakeFiles/Mravenisko.dir/world/vlakna/worldPlayer/world_player.c.i
+.PHONY : world/vlakna/worldPlayer/world_player.c.i
+
+world/vlakna/worldPlayer/world_player.s: world/vlakna/worldPlayer/world_player.c.s
+
+.PHONY : world/vlakna/worldPlayer/world_player.s
+
+# target to generate assembly for a file
+world/vlakna/worldPlayer/world_player.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mravenisko.dir/build.make CMakeFiles/Mravenisko.dir/world/vlakna/worldPlayer/world_player.c.s
+.PHONY : world/vlakna/worldPlayer/world_player.c.s
+
+world/vlakna/worldUser/world_user.o: world/vlakna/worldUser/world_user.c.o
+
+.PHONY : world/vlakna/worldUser/world_user.o
+
+# target to build an object file
+world/vlakna/worldUser/world_user.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mravenisko.dir/build.make CMakeFiles/Mravenisko.dir/world/vlakna/worldUser/world_user.c.o
+.PHONY : world/vlakna/worldUser/world_user.c.o
+
+world/vlakna/worldUser/world_user.i: world/vlakna/worldUser/world_user.c.i
+
+.PHONY : world/vlakna/worldUser/world_user.i
+
+# target to preprocess a source file
+world/vlakna/worldUser/world_user.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mravenisko.dir/build.make CMakeFiles/Mravenisko.dir/world/vlakna/worldUser/world_user.c.i
+.PHONY : world/vlakna/worldUser/world_user.c.i
+
+world/vlakna/worldUser/world_user.s: world/vlakna/worldUser/world_user.c.s
+
+.PHONY : world/vlakna/worldUser/world_user.s
+
+# target to generate assembly for a file
+world/vlakna/worldUser/world_user.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mravenisko.dir/build.make CMakeFiles/Mravenisko.dir/world/vlakna/worldUser/world_user.c.s
+.PHONY : world/vlakna/worldUser/world_user.c.s
+
 world/world.o: world/world.c.o
 
 .PHONY : world/world.o
@@ -418,6 +472,12 @@ help:
 	@echo "... world/plocha/policko/policko.o"
 	@echo "... world/plocha/policko/policko.i"
 	@echo "... world/plocha/policko/policko.s"
+	@echo "... world/vlakna/worldPlayer/world_player.o"
+	@echo "... world/vlakna/worldPlayer/world_player.i"
+	@echo "... world/vlakna/worldPlayer/world_player.s"
+	@echo "... world/vlakna/worldUser/world_user.o"
+	@echo "... world/vlakna/worldUser/world_user.i"
+	@echo "... world/vlakna/worldUser/world_user.s"
 	@echo "... world/world.o"
 	@echo "... world/world.i"
 	@echo "... world/world.s"

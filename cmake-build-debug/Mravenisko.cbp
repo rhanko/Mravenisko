@@ -121,6 +121,21 @@
 		<Unit filename="/home/hanko/tmp/tmp.Enb4A1lRTf/world/plocha/policko/policko.h">
 			<Option target="Mravenisko"/>
 		</Unit>
+		<Unit filename="/home/hanko/tmp/tmp.Enb4A1lRTf/world/vlakna/worldPlayer/world_player.c">
+			<Option target="Mravenisko"/>
+		</Unit>
+		<Unit filename="/home/hanko/tmp/tmp.Enb4A1lRTf/world/vlakna/worldPlayer/world_player.h">
+			<Option target="Mravenisko"/>
+		</Unit>
+		<Unit filename="/home/hanko/tmp/tmp.Enb4A1lRTf/world/vlakna/worldThreadData.h">
+			<Option target="Mravenisko"/>
+		</Unit>
+		<Unit filename="/home/hanko/tmp/tmp.Enb4A1lRTf/world/vlakna/worldUser/world_user.c">
+			<Option target="Mravenisko"/>
+		</Unit>
+		<Unit filename="/home/hanko/tmp/tmp.Enb4A1lRTf/world/vlakna/worldUser/world_user.h">
+			<Option target="Mravenisko"/>
+		</Unit>
 		<Unit filename="/home/hanko/tmp/tmp.Enb4A1lRTf/world/world.c">
 			<Option target="Mravenisko"/>
 		</Unit>

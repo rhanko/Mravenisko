@@ -4,17 +4,53 @@
 
 #include "client.h"
 #include "../definition.h"
+#include "../world/world.h"
+#include "../world/vlakna/worldThreadData.h"
+#include "../world/vlakna/worldUser/world_user.h"
+#include "../world/vlakna/worldPlayer/world_player.h"
 
-#include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
-
-#include <sys/socket.h>
-#include <arpa/inet.h>
-#include <netdb.h>
-#include <unistd.h>
+#include <pthread.h>
 
 int client_main(int argc, char **argv) {
+
+    pthread_mutex_t mutex;
+    pthread_mutex_init(&mutex, NULL);
+
+    BOOLEAN pauza = T;
+    BOOLEAN koniec = F;
+
+    WORLD world = world_create("aaaa", 1, 1, 0, 0);
+
+    WORLD_THREAD_DATA d = {
+            &world,
+            &mutex,
+            &pauza,
+            &koniec
+    };
+
+    pthread_cond_t pPauza, pokracuj;
+    pthread_cond_init(&pPauza, NULL);
+    pthread_cond_init(&pokracuj, NULL);
+
+    WORLD_PLAYER_DATA ud = {
+            &d,
+            &pPauza,
+            &pokracuj
+    };
+
+    pthread_t world_user_thread;
+    pthread_create(&world_user_thread, NULL, &world_player, &ud);
+
+    pthread_join(world_user_thread, NULL);
+
+    pthread_mutex_destroy(&mutex);
+    pthread_cond_destroy(&pPauza);
+    pthread_cond_destroy(&pokracuj);
+    return 0;
+}
+
+/*int client_main(int argc, char **argv) {
     if (argc < 2) {
         printError("Klienta je nutne spustit s nasledujucimi argumentmi: adresa port.");
     }
@@ -75,4 +111,4 @@ int client_main(int argc, char **argv) {
     printf("Spojenie so serverom bolo ukoncene.\n");
 
     return (EXIT_SUCCESS);
-}
+}*/

@@ -6,25 +6,65 @@
 
 #IncludeRegexTransform: 
 
+/home/hanko/tmp/tmp.Enb4A1lRTf/client/client.c
+client.h
+/home/hanko/tmp/tmp.Enb4A1lRTf/client/client.h
+../definition.h
+/home/hanko/tmp/tmp.Enb4A1lRTf/definition.h
+../world/world.h
+/home/hanko/tmp/tmp.Enb4A1lRTf/world/world.h
+../world/vlakna/worldThreadData.h
+/home/hanko/tmp/tmp.Enb4A1lRTf/world/vlakna/worldThreadData.h
+../world/vlakna/worldUser/world_user.h
+/home/hanko/tmp/tmp.Enb4A1lRTf/world/vlakna/worldUser/world_user.h
+../world/vlakna/worldPlayer/world_player.h
+/home/hanko/tmp/tmp.Enb4A1lRTf/world/vlakna/worldPlayer/world_player.h
+string.h
+-
+pthread.h
+-
+
+/home/hanko/tmp/tmp.Enb4A1lRTf/client/client.h
+
+/home/hanko/tmp/tmp.Enb4A1lRTf/definition.h
+
+/home/hanko/tmp/tmp.Enb4A1lRTf/world/mravce/mravce.h
+mravec/mravec.h
+/home/hanko/tmp/tmp.Enb4A1lRTf/world/mravce/mravec/mravec.h
+
+/home/hanko/tmp/tmp.Enb4A1lRTf/world/mravce/mravec/mravec.h
+../../../definition.h
+/home/hanko/tmp/tmp.Enb4A1lRTf/definition.h
+
 /home/hanko/tmp/tmp.Enb4A1lRTf/world/plocha/plocha.h
 policko/policko.h
 /home/hanko/tmp/tmp.Enb4A1lRTf/world/plocha/policko/policko.h
 
 /home/hanko/tmp/tmp.Enb4A1lRTf/world/plocha/policko/policko.h
 
-/home/hanko/tmp/tmp.Enb4A1lRTf/world/world.c
-world.h
+/home/hanko/tmp/tmp.Enb4A1lRTf/world/vlakna/worldPlayer/world_player.h
+../worldThreadData.h
+/home/hanko/tmp/tmp.Enb4A1lRTf/world/vlakna/worldThreadData.h
+
+/home/hanko/tmp/tmp.Enb4A1lRTf/world/vlakna/worldThreadData.h
+bits/pthreadtypes.h
+-
+../world.h
 /home/hanko/tmp/tmp.Enb4A1lRTf/world/world.h
-plocha/plocha.h
-/home/hanko/tmp/tmp.Enb4A1lRTf/world/plocha/plocha.h
-stdio.h
--
-stdlib.h
--
-string.h
--
+../../definition.h
+/home/hanko/tmp/tmp.Enb4A1lRTf/definition.h
+
+/home/hanko/tmp/tmp.Enb4A1lRTf/world/vlakna/worldUser/world_user.h
+../worldThreadData.h
+/home/hanko/tmp/tmp.Enb4A1lRTf/world/vlakna/worldThreadData.h
 
 /home/hanko/tmp/tmp.Enb4A1lRTf/world/world.h
 plocha/plocha.h
 /home/hanko/tmp/tmp.Enb4A1lRTf/world/plocha/plocha.h
+mravce/mravec/mravec.h
+/home/hanko/tmp/tmp.Enb4A1lRTf/world/mravce/mravec/mravec.h
+../definition.h
+/home/hanko/tmp/tmp.Enb4A1lRTf/definition.h
+mravce/mravce.h
+/home/hanko/tmp/tmp.Enb4A1lRTf/world/mravce/mravce.h
 
