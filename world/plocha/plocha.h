@@ -8,7 +8,7 @@
 #include "policko/policko.h"
 
 typedef struct plocha {
-    POLICKO* **policka;
+    POLICKO **policka;
     int x;
     int y;
 } PLOCHA;

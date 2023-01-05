@@ -10,7 +10,6 @@
 typedef struct world_player_data {
     WORLD_THREAD_DATA *data;
     pthread_cond_t *pauza;
-    pthread_cond_t *pokracuj;
 } WORLD_PLAYER_DATA;
 
 void *world_player(void *data);

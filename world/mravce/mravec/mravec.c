@@ -17,9 +17,9 @@ MRAVEC mravec_create_random(int x, int y) {
     SMER smer = (cSmer == 0 ? HORE : (cSmer == 1 ? VPRAVO : (cSmer == 2 ? DOLE : VLAVO)));
 
     MRAVEC mravec = {
-            &x,
-            &y,
-            &smer,
+            x,
+            y,
+            smer,
             T
     };
 
@@ -32,7 +32,7 @@ MRAVEC mravec_create_random(int x, int y) {
  * @return nazov smeru
  */
 char *mravec_daj_smer(MRAVEC *mravec) {
-    switch (*mravec->smer) {
+    switch (mravec->smer) {
         case HORE:
             return "HORE";
         case VPRAVO:
@@ -50,19 +50,19 @@ char *mravec_daj_smer(MRAVEC *mravec) {
  * @param smer smer, ktory mu chceme nastavit v tvare stringu
  */
 void mravec_nastav_smer(MRAVEC *mravec, char *smer) {
-    if (strcmp(smer, "HORE") == 0) {
-        *mravec->smer = HORE;
+    if (strcmp(smer, "HORE\n") == 0) {
+        mravec->smer = HORE;
     } else
-    if (strcmp(smer, "DOLE") == 0) {
-        *mravec->smer = HORE;
+    if (strcmp(smer, "DOLE\n") == 0) {
+        mravec->smer = HORE;
     } else
     if (strcmp(smer, "VPRAVO") == 0) {
-        *mravec->smer = HORE;
+        mravec->smer = HORE;
     } else
-    if (strcmp(smer, "VLAVO") == 0) {
-        *mravec->smer = HORE;
+    if (strcmp(smer, "VLAVO\n") == 0) {
+        mravec->smer = HORE;
     } else {
-        exit(1);
+        exit(11);
     }
 }
 
@@ -75,37 +75,41 @@ void mravec_nastav_smer(MRAVEC *mravec, char *smer) {
  */
 void mravec_posunsa(MRAVEC *mravec, unsigned int otocenie, int max_x, int max_y) {
     if (mravec->existuje == T) {
-        switch (*mravec->smer) {
+        switch (mravec->smer) {
             case HORE:
-                (*mravec->y == max_y ? *mravec->y = 0 : ++*mravec->y);
                 if (otocenie == 0) {
-                    *mravec->smer = VPRAVO;
+                    mravec->smer = VPRAVO;
+                    (mravec->x == 0 ? mravec->x = (max_x - 1) : mravec->x--);
                 } else {
-                    *mravec->smer = VLAVO;
+                    mravec->smer = VLAVO;
+                    (mravec->x == (max_x - 1) ? mravec->x = 0 : mravec->x++);
                 }
                 break;
             case VPRAVO:
-                (*mravec->x == max_x ? *mravec->x = 0 : ++*mravec->x);
                 if (otocenie == 0) {
-                    *mravec->smer = DOLE;
+                    mravec->smer = DOLE;
+                    (mravec->y == (max_y - 1) ? mravec->y = 0 : mravec->y++);
                 } else {
-                    *mravec->smer = HORE;
+                    mravec->smer = HORE;
+                    (mravec->y == 0 ? mravec->y = (max_y - 1) : mravec->y--);
                 }
                 break;
             case VLAVO:
-                (*mravec->x == 0 ? *mravec->x = max_x : --*mravec->x);
                 if (otocenie == 0) {
-                    *mravec->smer = HORE;
+                    mravec->smer = HORE;
+                    (mravec->y == 0 ? mravec->y = (max_y - 1) : mravec->y--);
                 } else {
-                    *mravec->smer = DOLE;
+                    mravec->smer = DOLE;
+                    (mravec->y == (max_y - 1) ? mravec->y = 0 : mravec->y++);
                 }
                 break;
             case DOLE:
-                (*mravec->y == 0 ? *mravec->y = max_y : --*mravec->y);
                 if (otocenie == 0) {
-                    *mravec->smer = VLAVO;
+                    mravec->smer = VLAVO;
+                    (mravec->x == (max_x - 1) ? mravec->x = 0 : mravec->x++);
                 } else {
-                    *mravec->smer = VPRAVO;
+                    mravec->smer = VPRAVO;
+                    (mravec->x == 0 ? mravec->x = (max_x - 1) : mravec->x--);
                 }
                 break;
         }
@@ -117,5 +121,5 @@ void mravec_posunsa(MRAVEC *mravec, unsigned int otocenie, int max_x, int max_y)
  * @param mravec mravec, s ktoreho sa to tyka
  */
 void mravec_zomri(MRAVEC *mravec) {
-    *mravec->existuje = F;
+    mravec->existuje = F;
 }

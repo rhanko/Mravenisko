@@ -24,7 +24,7 @@ PLOCHA plocha_create(int velkost_x, int velkost_y) {
     }
 
     PLOCHA plocha = {
-            &policka,
+            policka,
             velkost_x,
             velkost_y
     };

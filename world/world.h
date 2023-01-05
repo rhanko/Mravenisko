@@ -12,14 +12,14 @@
 
 typedef struct world {
     char *nazov;
-    PLOCHA* plocha;
-    MRAVCE* mravce;
+    PLOCHA plocha;
+    MRAVCE mravce;
     int logika;
-    int *pocet_dni;
+    int pocet_dni;
 } WORLD;
 
 WORLD world_create(char *nazov, int velkost_x, int velkost_y, int pocet_mravcov, int logika);
-int world_save(char *filename, WORLD world, int typ);
+void world_save(char *filename, WORLD *world, int typ);
 WORLD world_load(char *filename, char *nazov_sveta, int typ);
 
 #endif //MRAVENISKO_WORLD_H

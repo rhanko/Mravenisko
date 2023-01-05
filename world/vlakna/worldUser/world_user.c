@@ -2,10 +2,10 @@
 // Created by hanko on 4. 1. 2023.
 //
 
-#include <stdio.h>
 #include <pthread.h>
+#include <stdio.h>
+#include <malloc.h>
 #include "world_user.h"
-#include "../worldPlayer/world_player.h"
 
 int getInputNumber() {
     int cislo = 0, ch;
@@ -14,44 +14,57 @@ int getInputNumber() {
         ch = getchar();
 
         if (ch >= '0' && ch <= '9') {
-            printf("%c", ch);
             cislo = cislo * 10 + (ch - 48);
         }
-    } while (ch == '\n');
+    } while (ch != '\n');
 
     return (cislo > 0 ? cislo : 1);
 }
 
 WORLD new_world() {
     printf("Zadaj názov sveta, ktorý chceš vytvoriť: \n");
-    char nazov_sveta[100];
-    gets(nazov_sveta);
-
+    char *nazov_sveta = malloc(sizeof (char) * 100);
+    scanf("%s",nazov_sveta);
+    getchar();
     printf("Zadaj veľkosť x-ovej osi: \n");
-    int max_x = getInputNumber();
+    int max_x;
+    max_x = getInputNumber();
 
     printf("Zadaj veľkosť y-ovej osi: \n");
-    int max_y = getInputNumber();
+    int max_y;
+    max_y = getInputNumber();
 
     printf("Zadaj počet mravcov: \n");
-    int pocet_mravcov = getInputNumber();
+    int pocet_mravcov;
+    pocet_mravcov =getInputNumber();
 
-    printf("Vyber logiku: \n1.) priama\n2.)inverzná");
-    int logika = getInputNumber() - 1;
+    printf("Vyber logiku: \n1.) priama\n2.) inverzná\n");
+    int logika;
+    logika = getInputNumber();
 
-    WORLD world = world_create(nazov_sveta, max_x, max_y, pocet_mravcov, logika);
+    WORLD world = world_create(nazov_sveta, max_x, max_y, pocet_mravcov, logika-1);
 
     return world;
 }
 
 WORLD load_world(char* filename, int typ) {
     printf("Zadaj názov sveta, ktorý sa má načítať: \n");
-    char nazov_sveta[100];
+    char *nazov_sveta = malloc(sizeof (char) * 100);
     gets(nazov_sveta);
 
     WORLD world = world_load(filename, nazov_sveta, typ);
 
     return world;
+}
+
+void save_world(char *filename, int typ, WORLD *world) {
+    printf("Zadaj názov sveta, pre uloženie: \n");
+    char *nazov_sveta = malloc(sizeof (char) * 100);
+    gets(nazov_sveta);
+
+    world->nazov = nazov_sveta;
+    world_save(filename, world, typ);
+
 }
 
 int menu_jedna() {
@@ -87,46 +100,61 @@ void *world_user(void *data) {
     do {
         vyber = menu_jedna();
 
-        WORLD world;
-
         switch (vyber) {
             case 1:
-                world = new_world();
+                pthread_mutex_lock(d->data->mutex);
+                *d->data->world = new_world();
+                pthread_mutex_unlock(d->data->mutex);
                 break;
             case 2:
-                world = load_world("worlds.txt", 0);
+                pthread_mutex_lock(d->data->mutex);
+                *d->data->world = load_world("worlds.txt", 0);
+                pthread_mutex_unlock(d->data->mutex);
                 break;
             case 3:
                 //TODO napravit to, na presmerovanie na server a odtial stiahnut :/
-                world = load_world("vzory.txt", 1);
+                pthread_mutex_lock(d->data->mutex);
+                *d->data->world = load_world("vzory.txt", 1);
+                plocha_vypis(&d->data->world->plocha);
+                pthread_mutex_unlock(d->data->mutex);
+                break;
+            case 5:
+                pthread_mutex_lock(d->data->mutex);
+                *d->data->koniec = T;
+                pthread_mutex_unlock(d->data->mutex);
+                pthread_cond_signal(d->pauza);
                 break;
             default: break;
         }
 
-        if (vyber == 1 || vyber == 2) {
+        if (vyber == 1 || vyber == 2 || vyber == 6) {
 
-            pthread_mutex_lock(d->data->mutex);
-
-            WORLD_PLAYER_DATA pd = {
-                    d->data,
-                    d->pauza,
-                    d->pokracuj
-            };
-
-            pthread_t world_player_thread;
-            pthread_create(&world_player_thread, NULL, &world_player, &pd);
-            pthread_join(world_player_thread, NULL);
-
-            pthread_mutex_unlock(d->data->mutex);
             int vyber2;
             do {
                 vyber2 = menu_dva();
 
-
+                switch (vyber2) {
+                    case 1:
+                        pthread_mutex_lock(d->data->mutex);
+                        *d->data->pauza = (*d->data->pauza == T ? F : T);
+                        pthread_mutex_unlock(d->data->mutex);
+                        pthread_cond_signal(d->pauza);
+                        break;
+                    case 2:
+                        pthread_mutex_lock(d->data->mutex);
+                        save_world("worlds.txt", 0, d->data->world);
+                        pthread_mutex_unlock(d->data->mutex);
+                        break;
+                    case 5:
+                        pthread_mutex_lock(d->data->mutex);
+                        *d->data->pauza = T;
+                        pthread_mutex_unlock(d->data->mutex);
+                        break;
+                    default:
+                        break;
+                }
             } while (vyber2 != 5);
-
         }
-
     } while (vyber != 5);
 
     return 0;

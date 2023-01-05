@@ -2,15 +2,13 @@
 // Created by hanko on 28. 12. 2022.
 //
 
+#include <pthread.h>
+
 #include "client.h"
 #include "../definition.h"
 #include "../world/world.h"
 #include "../world/vlakna/worldThreadData.h"
 #include "../world/vlakna/worldUser/world_user.h"
-#include "../world/vlakna/worldPlayer/world_player.h"
-
-#include <string.h>
-#include <pthread.h>
 
 int client_main(int argc, char **argv) {
 
@@ -20,7 +18,7 @@ int client_main(int argc, char **argv) {
     BOOLEAN pauza = T;
     BOOLEAN koniec = F;
 
-    WORLD world = world_create("aaaa", 1, 1, 0, 0);
+    WORLD world;
 
     WORLD_THREAD_DATA d = {
             &world,
@@ -29,24 +27,28 @@ int client_main(int argc, char **argv) {
             &koniec
     };
 
-    pthread_cond_t pPauza, pokracuj;
+    pthread_cond_t pPauza;
     pthread_cond_init(&pPauza, NULL);
-    pthread_cond_init(&pokracuj, NULL);
 
-    WORLD_PLAYER_DATA ud = {
+    WORLD_USER_DATA ud = {
             &d,
-            &pPauza,
-            &pokracuj
+            &pPauza
     };
 
-    pthread_t world_user_thread;
-    pthread_create(&world_user_thread, NULL, &world_player, &ud);
+    WORLD_PLAYER_DATA pd = {
+            &d,
+            &pPauza
+    };
+
+    pthread_t world_user_thread, world_player_thread;
+    pthread_create(&world_user_thread, NULL, &world_user, &ud);
+    pthread_create(&world_player_thread, NULL, &world_player, &pd);
 
     pthread_join(world_user_thread, NULL);
+    pthread_join(world_player_thread, NULL);
 
     pthread_mutex_destroy(&mutex);
     pthread_cond_destroy(&pPauza);
-    pthread_cond_destroy(&pokracuj);
     return 0;
 }
 

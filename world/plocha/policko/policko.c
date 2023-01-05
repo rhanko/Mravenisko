@@ -33,6 +33,6 @@ void nastavFarbuPolicka(char farba, POLICKO *policko) {
     } else if(farba == 'B') {
         *policko = B;
     } else {
-        exit(-1);
+        exit(10);
     }
 }
