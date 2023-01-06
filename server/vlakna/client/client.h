@@ -10,7 +10,6 @@
 
 typedef struct vlakno_data {
     pthread_mutex_t *mutex;
-    WORLD world;
     int co_robit; //0->posli vzor, 1-> uloz vzor
     int client_socket;
 } VLAKNO_DATA;

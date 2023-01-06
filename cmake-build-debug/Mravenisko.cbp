@@ -88,6 +88,18 @@
 		<Unit filename="/home/hanko/tmp/tmp.Enb4A1lRTf/definition.h">
 			<Option target="Mravenisko"/>
 		</Unit>
+		<Unit filename="/home/hanko/tmp/tmp.Enb4A1lRTf/komunikacia/nacitavac.c">
+			<Option target="Mravenisko"/>
+		</Unit>
+		<Unit filename="/home/hanko/tmp/tmp.Enb4A1lRTf/komunikacia/nacitavac.h">
+			<Option target="Mravenisko"/>
+		</Unit>
+		<Unit filename="/home/hanko/tmp/tmp.Enb4A1lRTf/komunikacia/ukladac.c">
+			<Option target="Mravenisko"/>
+		</Unit>
+		<Unit filename="/home/hanko/tmp/tmp.Enb4A1lRTf/komunikacia/ukladac.h">
+			<Option target="Mravenisko"/>
+		</Unit>
 		<Unit filename="/home/hanko/tmp/tmp.Enb4A1lRTf/main.c">
 			<Option target="Mravenisko"/>
 		</Unit>

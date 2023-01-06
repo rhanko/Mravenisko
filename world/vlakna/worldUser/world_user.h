@@ -11,6 +11,8 @@
 typedef struct world_user_data {
     WORLD_THREAD_DATA *data;
     pthread_cond_t *pauza;
+    char *serverName;
+    char *portName;
 } WORLD_USER_DATA;
 
 void *world_user(void *data);

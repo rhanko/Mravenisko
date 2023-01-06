@@ -15,17 +15,6 @@
 void *world_player(void *data) {
     WORLD_PLAYER_DATA *d = (WORLD_PLAYER_DATA *) data;
 
-    //vypisanie sveta;
-    pthread_mutex_lock(d->data->mutex);
-    if (*d->data->pauza == T) {
-        pthread_cond_wait(d->pauza, d->data->mutex);
-    }
-
-    world_vypis(d->data->world);
-    pthread_mutex_unlock(d->data->mutex);
-
-    sleep(5);
-
     while(1) {
         //zablokovanie mutexu
         pthread_mutex_lock(d->data->mutex);
@@ -43,6 +32,9 @@ void *world_player(void *data) {
 
             pthread_cond_wait(d->pauza, d->data->mutex);
         }
+
+        //vypisanie sveta s mravcami
+        world_vypis(d->data->world);
 
         //pohyb zivych mravcov
         for (int i = 0; i < d->data->world->mravce.pocet_mravcov; ++i) {
@@ -91,9 +83,6 @@ void *world_player(void *data) {
 
         //zvysenie dňa
         ++d->data->world->pocet_dni;
-
-        //vypisanie sveta s mravcami
-        world_vypis(d->data->world);
 
         //odblokovanie mutexu
         pthread_mutex_unlock(d->data->mutex);

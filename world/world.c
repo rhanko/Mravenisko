@@ -28,7 +28,6 @@ WORLD world_create(char *nazov, int velkost_x, int velkost_y, int pocet_mravcov,
             logika,
             0
     };
-
     return svet;
 }
 
@@ -80,6 +79,7 @@ void world_save(char *filename, WORLD *world, int typ) {
             fprintf(subor, "\t}\n");
         }
         fprintf(subor, "}\n");
+        printf("Úspešne uložené.\n");
     }
     fclose(subor);
 }
@@ -282,6 +282,7 @@ WORLD world_load(char *filename, char *nazov_sveta, int typ) {
                 logika,
                 pocet_dni
         };
+        printf("Úspešne načítané.\n");
         return world;
     }
 }

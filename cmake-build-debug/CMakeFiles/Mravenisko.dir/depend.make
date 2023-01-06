@@ -17,12 +17,33 @@ CMakeFiles/Mravenisko.dir/definition.c.o: ../definition.c
 CMakeFiles/Mravenisko.dir/definition.c.o: ../definition.h
 
 CMakeFiles/Mravenisko.dir/main.c.o: ../client/client.h
+CMakeFiles/Mravenisko.dir/main.c.o: ../definition.h
 CMakeFiles/Mravenisko.dir/main.c.o: ../main.c
 CMakeFiles/Mravenisko.dir/main.c.o: ../server/server.h
+CMakeFiles/Mravenisko.dir/main.c.o: ../world/mravce/mravce.h
+CMakeFiles/Mravenisko.dir/main.c.o: ../world/mravce/mravec/mravec.h
+CMakeFiles/Mravenisko.dir/main.c.o: ../world/plocha/plocha.h
+CMakeFiles/Mravenisko.dir/main.c.o: ../world/plocha/policko/policko.h
+CMakeFiles/Mravenisko.dir/main.c.o: ../world/world.h
 
 CMakeFiles/Mravenisko.dir/server/server.c.o: ../definition.h
 CMakeFiles/Mravenisko.dir/server/server.c.o: ../server/server.c
 CMakeFiles/Mravenisko.dir/server/server.c.o: ../server/server.h
+CMakeFiles/Mravenisko.dir/server/server.c.o: ../server/vlakna/client/client.h
+CMakeFiles/Mravenisko.dir/server/server.c.o: ../world/mravce/mravce.h
+CMakeFiles/Mravenisko.dir/server/server.c.o: ../world/mravce/mravec/mravec.h
+CMakeFiles/Mravenisko.dir/server/server.c.o: ../world/plocha/plocha.h
+CMakeFiles/Mravenisko.dir/server/server.c.o: ../world/plocha/policko/policko.h
+CMakeFiles/Mravenisko.dir/server/server.c.o: ../world/world.h
+
+CMakeFiles/Mravenisko.dir/server/vlakna/client/client.c.o: ../definition.h
+CMakeFiles/Mravenisko.dir/server/vlakna/client/client.c.o: ../server/vlakna/client/client.c
+CMakeFiles/Mravenisko.dir/server/vlakna/client/client.c.o: ../server/vlakna/client/client.h
+CMakeFiles/Mravenisko.dir/server/vlakna/client/client.c.o: ../world/mravce/mravce.h
+CMakeFiles/Mravenisko.dir/server/vlakna/client/client.c.o: ../world/mravce/mravec/mravec.h
+CMakeFiles/Mravenisko.dir/server/vlakna/client/client.c.o: ../world/plocha/plocha.h
+CMakeFiles/Mravenisko.dir/server/vlakna/client/client.c.o: ../world/plocha/policko/policko.h
+CMakeFiles/Mravenisko.dir/server/vlakna/client/client.c.o: ../world/world.h
 
 CMakeFiles/Mravenisko.dir/world/mravce/mravce.c.o: ../definition.h
 CMakeFiles/Mravenisko.dir/world/mravce/mravce.c.o: ../world/mravce/mravce.c
@@ -50,6 +71,7 @@ CMakeFiles/Mravenisko.dir/world/vlakna/worldPlayer/world_player.c.o: ../world/vl
 CMakeFiles/Mravenisko.dir/world/vlakna/worldPlayer/world_player.c.o: ../world/vlakna/worldThreadData.h
 CMakeFiles/Mravenisko.dir/world/vlakna/worldPlayer/world_player.c.o: ../world/world.h
 
+CMakeFiles/Mravenisko.dir/world/vlakna/worldUser/world_user.c.o: ../client/client.h
 CMakeFiles/Mravenisko.dir/world/vlakna/worldUser/world_user.c.o: ../definition.h
 CMakeFiles/Mravenisko.dir/world/vlakna/worldUser/world_user.c.o: ../world/mravce/mravce.h
 CMakeFiles/Mravenisko.dir/world/vlakna/worldUser/world_user.c.o: ../world/mravce/mravec/mravec.h

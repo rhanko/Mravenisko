@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include <malloc.h>
 #include "world_user.h"
+#include "../../../client/client.h"
 
 /**
  * Funkcia na získanie čísla od užívateľa
@@ -51,7 +52,6 @@ WORLD new_world() {
     logika = getInputNumber();
 
     WORLD world = world_create(nazov_sveta, max_x, max_y, pocet_mravcov, logika-1);
-
     return world;
 }
 
@@ -80,7 +80,6 @@ void save_world(WORLD *world) {
 
     world->nazov = nazov_sveta;
     world_save("worlds.txt", world, 0);
-
 }
 /**
  * Pomocná funkcia pre zobrazenie menu
@@ -139,9 +138,12 @@ void *world_user(void *data) {
                 pthread_mutex_unlock(d->data->mutex);
                 break;
             case 3:
+                printf("Zadaj názov vzoru, ktorý sa má načítať: \n");
+                char *nazov_sveta = malloc(sizeof (char) * 100);
+                gets(nazov_sveta);
+
                 pthread_mutex_lock(d->data->mutex);
-                //TODO: STIAHNUT ZO SERVERA VZOR
-                plocha_vypis(&d->data->world->plocha);
+                zobrazit_vzor(d->serverName, d->portName, nazov_sveta);
                 pthread_mutex_unlock(d->data->mutex);
                 break;
             case 5:
@@ -173,8 +175,7 @@ void *world_user(void *data) {
                         break;
                     case 3:
                         pthread_mutex_lock(d->data->mutex);
-                        //TODO: ULOZIT NA SERVER VZOR
-                        plocha_vypis(&d->data->world->plocha);
+                        ulozit_vzor(d->serverName, d->portName, d->data->world);
                         pthread_mutex_unlock(d->data->mutex);
                         break;
                     case 5:

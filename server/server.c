@@ -49,13 +49,11 @@ int server_main(int argc, char** argv) {
     pthread_cond_t dalsi;
     pthread_cond_init(&dalsi, NULL);
 
-    WORLD world = world_create("", 0, 0, 0, 0);
     int co_robit = 0;   //0 -> posli vzor, 1 -> uloz vzor
     int client_socket = 0;
 
     VLAKNO_DATA vd = {
             &mutex,
-            world,
             co_robit,
             client_socket
     };
@@ -83,7 +81,6 @@ int server_main(int argc, char** argv) {
         //vytvorit vlakno
         pthread_t klient_vlakno;
         pthread_create(&klient_vlakno, NULL, &client, &vd);
-        //pthread_join(klient_vlakno, NULL);
 
     }
 

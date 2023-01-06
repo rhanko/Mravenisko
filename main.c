@@ -24,6 +24,5 @@ int main(int argc, char **argv) {
         printf("Bol zadaný zlý argument.\n");
         return 2;
     }
-
     return 0;
 }
