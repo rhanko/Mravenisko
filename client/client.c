@@ -10,11 +10,22 @@
 #include "../world/vlakna/worldThreadData.h"
 #include "../world/vlakna/worldUser/world_user.h"
 
+/**
+ * Spustac klienta
+ * @param argc pocet argumentov
+ * @param argv argumenty
+ * @return chyby alebo uspesne ukoncenie
+ */
 int client_main(int argc, char **argv) {
+    if (argc < 2) {
+        printError("Klienta je nutne spustit s nasledujucimi argumentmi: adresa a port.");
+    }
 
+    //vytvorenie mutexu a inicializacia
     pthread_mutex_t mutex;
     pthread_mutex_init(&mutex, NULL);
 
+    //inicializacia dat pre vlakna
     BOOLEAN pauza = T;
     BOOLEAN koniec = F;
 
@@ -27,6 +38,7 @@ int client_main(int argc, char **argv) {
             &koniec
     };
 
+    //podmienka pre vlakno
     pthread_cond_t pPauza;
     pthread_cond_init(&pPauza, NULL);
 
@@ -40,6 +52,7 @@ int client_main(int argc, char **argv) {
             &pPauza
     };
 
+    //vytvorenie a inicializacia vlakien
     pthread_t world_user_thread, world_player_thread;
     pthread_create(&world_user_thread, NULL, &world_user, &ud);
     pthread_create(&world_player_thread, NULL, &world_player, &pd);
@@ -47,15 +60,14 @@ int client_main(int argc, char **argv) {
     pthread_join(world_user_thread, NULL);
     pthread_join(world_player_thread, NULL);
 
+    //znicenie mutexu a podmienky
     pthread_mutex_destroy(&mutex);
     pthread_cond_destroy(&pPauza);
     return 0;
 }
 
 /*int client_main(int argc, char **argv) {
-    if (argc < 2) {
-        printError("Klienta je nutne spustit s nasledujucimi argumentmi: adresa port.");
-    }
+
 
     //ziskanie adresy a portu servera <netdb.h>
     struct hostent *server = gethostbyname(argv[0]);
@@ -83,10 +95,9 @@ int client_main(int argc, char **argv) {
     if (connect(sock,(struct sockaddr *) &serverAddress, sizeof(serverAddress)) < 0) {
         printError("Chyba - connect.");
     }
+
+    //LOGIKA TU
     printf("Spojenie so serverom bolo nadviazane.\n");
-
-
-
     char buffer[BUFFER_LENGTH + 1];
     buffer[BUFFER_LENGTH] = '\0';
     int koniec = 0;

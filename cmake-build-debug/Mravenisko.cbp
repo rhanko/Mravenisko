@@ -97,6 +97,12 @@
 		<Unit filename="/home/hanko/tmp/tmp.Enb4A1lRTf/server/server.h">
 			<Option target="Mravenisko"/>
 		</Unit>
+		<Unit filename="/home/hanko/tmp/tmp.Enb4A1lRTf/server/vlakna/client/client.c">
+			<Option target="Mravenisko"/>
+		</Unit>
+		<Unit filename="/home/hanko/tmp/tmp.Enb4A1lRTf/server/vlakna/client/client.h">
+			<Option target="Mravenisko"/>
+		</Unit>
 		<Unit filename="/home/hanko/tmp/tmp.Enb4A1lRTf/world/mravce/mravce.c">
 			<Option target="Mravenisko"/>
 		</Unit>

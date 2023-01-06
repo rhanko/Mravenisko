@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Mravenisko.dir/definition.c.o"
   "CMakeFiles/Mravenisko.dir/main.c.o"
   "CMakeFiles/Mravenisko.dir/server/server.c.o"
+  "CMakeFiles/Mravenisko.dir/server/vlakna/client/client.c.o"
   "CMakeFiles/Mravenisko.dir/world/mravce/mravce.c.o"
   "CMakeFiles/Mravenisko.dir/world/mravce/mravec/mravec.c.o"
   "CMakeFiles/Mravenisko.dir/world/plocha/plocha.c.o"

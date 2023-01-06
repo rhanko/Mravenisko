@@ -7,6 +7,10 @@
 #include <malloc.h>
 #include "world_user.h"
 
+/**
+ * Funkcia na získanie čísla od užívateľa
+ * @return vráti číslo
+ */
 int getInputNumber() {
     int cislo = 0, ch;
 
@@ -21,6 +25,10 @@ int getInputNumber() {
     return (cislo > 0 ? cislo : 1);
 }
 
+/**
+ * Pomocná unkcia na vytvorenie noveho sveta
+ * @return svet
+ */
 WORLD new_world() {
     printf("Zadaj názov sveta, ktorý chceš vytvoriť: \n");
     char *nazov_sveta = malloc(sizeof (char) * 100);
@@ -47,26 +55,37 @@ WORLD new_world() {
     return world;
 }
 
-WORLD load_world(char* filename, int typ) {
+/**
+ * Pomocná funkcia na načítanie sveta
+ * @return svet
+ */
+WORLD load_world() {
     printf("Zadaj názov sveta, ktorý sa má načítať: \n");
     char *nazov_sveta = malloc(sizeof (char) * 100);
     gets(nazov_sveta);
 
-    WORLD world = world_load(filename, nazov_sveta, typ);
+    WORLD world = world_load("worlds.txt", nazov_sveta, 0);
 
     return world;
 }
 
-void save_world(char *filename, int typ, WORLD *world) {
+/**
+ * Procedura na ulozenie sveta
+ * @param world svet, ktory chceme ulozit
+ */
+void save_world(WORLD *world) {
     printf("Zadaj názov sveta, pre uloženie: \n");
     char *nazov_sveta = malloc(sizeof (char) * 100);
     gets(nazov_sveta);
 
     world->nazov = nazov_sveta;
-    world_save(filename, world, typ);
+    world_save("worlds.txt", world, 0);
 
 }
-
+/**
+ * Pomocná funkcia pre zobrazenie menu
+ * @return vráti číslo na základe výberu z menu
+ */
 int menu_jedna() {
     int input;
 
@@ -80,6 +99,10 @@ int menu_jedna() {
     return input;
 }
 
+/**
+ * Pomocná funkcia pre zobrazenie menu 2
+ * @return vráti číslo na základe výberu z menu 2
+ */
 int menu_dva() {
     int input;
 
@@ -92,7 +115,11 @@ int menu_dva() {
     input = getInputNumber();
     return input;
 }
-
+/**
+ * Vlákno, ktoré využíva klient na prácu so svetom
+ * @param data data sveta
+ * @return 0
+ */
 void *world_user(void *data) {
     WORLD_USER_DATA *d = (WORLD_USER_DATA *) data;
 
@@ -108,13 +135,12 @@ void *world_user(void *data) {
                 break;
             case 2:
                 pthread_mutex_lock(d->data->mutex);
-                *d->data->world = load_world("worlds.txt", 0);
+                *d->data->world = load_world();
                 pthread_mutex_unlock(d->data->mutex);
                 break;
             case 3:
-                //TODO napravit to, na presmerovanie na server a odtial stiahnut :/
                 pthread_mutex_lock(d->data->mutex);
-                *d->data->world = load_world("vzory.txt", 1);
+                //TODO: STIAHNUT ZO SERVERA VZOR
                 plocha_vypis(&d->data->world->plocha);
                 pthread_mutex_unlock(d->data->mutex);
                 break;
@@ -142,7 +168,13 @@ void *world_user(void *data) {
                         break;
                     case 2:
                         pthread_mutex_lock(d->data->mutex);
-                        save_world("worlds.txt", 0, d->data->world);
+                        save_world(d->data->world);
+                        pthread_mutex_unlock(d->data->mutex);
+                        break;
+                    case 3:
+                        pthread_mutex_lock(d->data->mutex);
+                        //TODO: ULOZIT NA SERVER VZOR
+                        plocha_vypis(&d->data->world->plocha);
                         pthread_mutex_unlock(d->data->mutex);
                         break;
                     case 5:

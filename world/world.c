@@ -40,7 +40,7 @@ WORLD world_create(char *nazov, int velkost_x, int velkost_y, int pocet_mravcov,
  * @return vrati 0, ak sa to ulozi spravne
  */
 void world_save(char *filename, WORLD *world, int typ) {
-    FILE *subor = fopen(filename, "w");
+    FILE *subor = fopen(filename, "a");
 
     if (subor == NULL) {
         printf("Chyba! Súbor sa nepodarilo otvoriť.\n");
@@ -84,16 +84,15 @@ void world_save(char *filename, WORLD *world, int typ) {
     fclose(subor);
 }
 
-/**
- * Funkcia pre nacitanie sveta / vzora
- * @param filename nazov suboru, odkial sa ma nacitat
- * @param nazov_sveta ako sa vola daný svet / vzor
- * @param typ ci ide o vzor (1) alebo svet (0)
- * @return vráti svet, ak sa tam nachadza
- */
-WORLD world_load(char *filename, char *nazov_sveta, int typ) {
-    FILE *subor = fopen(filename, "r");
 
+/**
+ * Pomocna funkcia ktora ma zistit ci existuje dany svet/ vzor
+ * @param subor subor v ktorom hlada
+ * @param nazov_sveta nazov sveta ktory hlada
+ * @param typ 0 ak ide o svet 1 ak ide o vzor
+ * @return vrati 0 ak najde, 1 ak nenajde
+ */
+int hladaj(FILE *subor, char *nazov_sveta, int typ) {
     if (subor == NULL) {
         printf("Chyba! Súbor sa nepodarilo otvoriť.\n");
     } else {
@@ -106,7 +105,6 @@ WORLD world_load(char *filename, char *nazov_sveta, int typ) {
         }
 
         //hlada sa svet/ vzor na zaklade hladaneho nazvu
-        char *meno_sveta = "";
         char line[100];
         while (fgets(line, 100, subor) != NULL) {
             char *cSvet = malloc(12);
@@ -128,124 +126,241 @@ WORLD world_load(char *filename, char *nazov_sveta, int typ) {
                 strncpy(nazov_sveta_najdeny, line + odkial, pokial - odkial);
 
                 if (strcmp(nazov_sveta, nazov_sveta_najdeny) == 0) {
-                    meno_sveta = nazov_sveta_najdeny;
+                    return 0;
                     break;
                 }
             }
         }
+    }
+    return 1;
+}
 
-        //Ak sa nenajde svet/ vzor
-        if (strcmp(meno_sveta, nazov_sveta) != 0) {
-            printf("Takýto sa tu nevyskytuje.\n");
+/**
+ * Funkcia na hladanie sveta / vzoru
+ * @param filename nazov suboru
+ * @param nazov_sveta nazov sveta
+ * @param typ 0 ak svet 1 ak vzor
+ * @return vrat 0 ak najde, v opacnom pripade hodi -1
+ */
+int world_existuje(char *filename, char *nazov_sveta, int typ) {
+    FILE *subor = fopen(filename, "r");
+
+    int existuje = hladaj(subor, nazov_sveta, typ);
+
+    fclose(subor);
+
+    //Ak sa nenajde svet/ vzor
+    if (existuje != 0) {
+        printf("Takýto sa tu nevyskytuje.\n");
+        return -1;
+    } else {
+        return 0;
+    }
+}
+
+
+/**
+ * Funkcia pre nacitanie sveta / vzora
+ * @param filename nazov suboru, odkial sa ma nacitat
+ * @param nazov_sveta ako sa vola daný svet / vzor
+ * @param typ ci ide o vzor (1) alebo svet (0)
+ * @return vráti svet, ak sa tam nachadza
+ */
+WORLD world_load(char *filename, char *nazov_sveta, int typ) {
+    FILE *subor = fopen(filename, "r");
+
+    int existuje = hladaj(subor, nazov_sveta, typ);
+
+    //Ak sa nenajde svet/ vzor
+    if (existuje != 0) {
+        printf("Takýto sa tu nevyskytuje.\n");
+    }
+    else {
+        char line[100];
+        //Pocet policok v x osi
+        fgets(line, 100, subor);
+        char *cX = malloc(5);
+        strcpy(cX, line + 13);
+        int x = atoi(cX);
+
+        //Pocet policok v y osi
+        fgets(line, 100, subor);
+        char *cY = malloc(5);
+        strcpy(cY, line + 13);
+        int y = atoi(cY);
+
+        //Pocet mravcov, logiky a dni
+        char *cPocet_mravcov = malloc(5);
+        int pocet_mravcov = 0;
+        char *cLogika = malloc(5);
+        int logika = 0;
+        char *cPocet_dni = malloc(5);
+        int pocet_dni = 0;
+
+        //alokacia iba ak je to svet a nie vzor
+        if (typ == 0) {
+            fgets(line, 100, subor);
+            strcpy(cPocet_mravcov, line + 17);
+            pocet_mravcov = atoi(cPocet_mravcov);
+
+            fgets(line, 100, subor);
+            strcpy(cLogika, line + 9);
+            logika = atoi(cLogika);
+
+            fgets(line, 100, subor);
+            strcpy(cPocet_dni, line + 14);
+            pocet_dni = atoi(cPocet_dni);
         }
-        else {
 
-            //Pocet policok v x osi
-            fgets(line, 100, subor);
-            char *cX = malloc(5);
-            strcpy(cX, line + 13);
-            int x = atoi(cX);
+        //Vynechanie riadku
+        fgets(line, 100, subor);
 
-            //Pocet policok v y osi
-            fgets(line, 100, subor);
-            char *cY = malloc(5);
-            strcpy(cY, line + 13);
-            int y = atoi(cY);
+        //PLOCHA
+        PLOCHA plocha = plocha_create(x, y);
 
-            //Pocet mravcov, logiky a dni
-            char *cPocet_mravcov = malloc(5);
-            int pocet_mravcov = 0;
-            char *cLogika = malloc(5);
-            int logika = 0;
-            char *cPocet_dni = malloc(5);
-            int pocet_dni = 0;
-
-            //alokacia iba ak je to svet a nie vzor
-            if (typ == 0) {
+        for (int i = 0; i < x; ++i) {
+            for (int j = 0; j < y; ++j) {
                 fgets(line, 100, subor);
-                strcpy(cPocet_mravcov, line + 17);
-                pocet_mravcov = atoi(cPocet_mravcov);
+                unsigned int position = strcspn(line, "\n") - 1;
+                nastavFarbuPolicka(line[position], &plocha.policka[i][j]);
+            }
+        }
 
-                fgets(line, 100, subor);
-                strcpy(cLogika, line + 9);
-                logika = atoi(cLogika);
+        //MRAVCE
+        MRAVCE mravce = mravce_create(pocet_mravcov);
 
+        if (typ == 0) {
+            for (int i = 0; i < 2; ++i) {
                 fgets(line, 100, subor);
-                strcpy(cPocet_dni, line + 14);
-                pocet_dni = atoi(cPocet_dni);
             }
 
-            //Vynechanie riadku
-            fgets(line, 100, subor);
+            for (int i = 0; i < pocet_mravcov; ++i) {
+                fgets(line, 100, subor);
+                int odkial = 2;
+                int pokial = 0;
 
-            //PLOCHA
-            PLOCHA plocha = plocha_create(x, y);
-
-            for (int i = 0; i < x; ++i) {
-                for (int j = 0; j < y; ++j) {
-                    fgets(line, 100, subor);
-                    unsigned int position = strcspn(line, "\n") - 1;
-                    nastavFarbuPolicka(line[position], &plocha.policka[i][j]);
+                for (int j = odkial; j < 100; ++j) {
+                    if (line[j] == ',') {
+                        pokial = j;
+                        break;
+                    }
                 }
+                char *cxm = malloc(pokial - odkial);
+                strncpy(cxm, line + odkial, pokial - odkial);
+                int xm = atoi(cxm);
+
+                odkial = pokial + 2;
+
+                for (int j = odkial; j < 100; ++j) {
+                    if (line[j] == ',') {
+                        pokial = j;
+                        break;
+                    }
+                }
+                char *cym = malloc(pokial - odkial);
+                strncpy(cym, line + odkial, pokial - odkial);
+                int ym = atoi(cym);
+
+                odkial = pokial + 2;
+
+                char *ctm = malloc(6);
+                strcpy(ctm, line + odkial);
+                ctm = ctm;
+                mravce.mravec[i].x = xm;
+                mravce.mravec[i].y = ym;
+                mravce.mravec[i].existuje = T;
+                mravec_nastav_smer(&mravce.mravec[i], ctm);
             }
+        }
 
-            //MRAVCE
-            MRAVCE mravce = mravce_create(pocet_mravcov);
+        fclose(subor);
 
-            if (typ == 0) {
-                for (int i = 0; i < 2; ++i) {
-                    fgets(line, 100, subor);
-                }
+        WORLD world = {
+                nazov_sveta,
+                plocha,
+                mravce,
+                logika,
+                pocet_dni
+        };
+        return world;
+    }
+}
 
-                for (int i = 0; i < pocet_mravcov; ++i) {
-                    fgets(line, 100, subor);
-                    int odkial = 2;
-                    int pokial = 0;
+/**
+ * Procedura, ktora vypise farbu policok a umiestnenie mravcov
+ * @param world svet, ktory sa ma vypisat
+ */
+void world_vypis(WORLD *world) {
+    printf("Den cislo: %d\n", world->pocet_dni);
+    for (int i = 0; i < world->plocha.x; ++i) {
+        for (int j = 0; j < world->plocha.y; ++j) {
+            printf("%s", dajFarbuPolicka(&world->plocha.policka[i][j]));
 
-                    for (int j = odkial; j < 100; ++j) {
-                        if (line[j] == ',') {
-                            pokial = j;
-                            break;
+            BOOLEAN je_mravec = F;
+            for (int k = 0; k < world->mravce.pocet_mravcov; ++k) {
+                MRAVEC mravec = world->mravce.mravec[k];
+
+                if (mravec.x == i && mravec.y == j && mravec.existuje == T) {
+                    char cSmer;
+
+                    POLICKO *policko = &world->plocha.policka[i][j];
+
+                    if (world->logika == 0 ) {
+                        if (*policko == B) {
+                            if (mravec.smer == HORE) {
+                                cSmer = 'U';
+                            } else if (mravec.smer == DOLE) {
+                                cSmer = 'D';
+                            } else if (mravec.smer == VPRAVO) {
+                                cSmer = 'R';
+                            } else {
+                                cSmer = 'L';
+                            }
+                        } else {
+                            if (mravec.smer == HORE) {
+                                cSmer = 'D';
+                            } else if (mravec.smer == DOLE) {
+                                cSmer = 'H';
+                            } else if (mravec.smer == VPRAVO) {
+                                cSmer = 'L';
+                            } else {
+                                cSmer = 'R';
+                            }
+                        }
+                    } else {
+                        if (*policko == C) {
+                            if (mravec.smer == HORE) {
+                                cSmer = 'U';
+                            } else if (mravec.smer == DOLE) {
+                                cSmer = 'D';
+                            } else if (mravec.smer == VPRAVO) {
+                                cSmer = 'R';
+                            } else {
+                                cSmer = 'L';
+                            }
+                        } else {
+                            if (mravec.smer == HORE) {
+                                cSmer = 'D';
+                            } else if (mravec.smer == DOLE) {
+                                cSmer = 'H';
+                            } else if (mravec.smer == VPRAVO) {
+                                cSmer = 'L';
+                            } else {
+                                cSmer = 'R';
+                            }
                         }
                     }
-                    char *cxm = malloc(pokial - odkial);
-                    strncpy(cxm, line + odkial, pokial - odkial);
-                    int xm = atoi(cxm);
 
-                    odkial = pokial + 2;
-
-                    for (int j = odkial; j < 100; ++j) {
-                        if (line[j] == ',') {
-                            pokial = j;
-                            break;
-                        }
-                    }
-                    char *cym = malloc(pokial - odkial);
-                    strncpy(cym, line + odkial, pokial - odkial);
-                    int ym = atoi(cym);
-
-                    odkial = pokial + 2;
-
-                    char *ctm = malloc(6);
-                    strcpy(ctm, line + odkial);
-                    ctm = ctm;
-                    mravce.mravec[i].x = xm;
-                    mravce.mravec[i].y = ym;
-                    mravce.mravec[i].existuje = T;
-                    mravec_nastav_smer(&mravce.mravec[i], ctm);
+                    printf("%c\t", cSmer);
+                    je_mravec = T;
+                    break;
                 }
             }
 
-            fclose(subor);
-
-            WORLD world = {
-                    meno_sveta,
-                    plocha,
-                    mravce,
-                    logika,
-                    pocet_dni
-            };
-            return world;
+            if (je_mravec == F) {
+                printf("\t");
+            }
         }
+        printf("\n");
     }
 }

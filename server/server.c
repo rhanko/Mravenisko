@@ -1,33 +1,20 @@
-//
-// Created by hanko on 28. 12. 2022.
-//
-
-#include "server.h"
-#include "../definition.h"
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <ctype.h>
 
 #include <sys/socket.h>
 #include <arpa/inet.h>
 #include <unistd.h>
-
-static char* spracujData(char *data) {
-    char *akt = data;
-    while (*akt != '\0') {
-        if (islower(*akt)) {
-            *akt = toupper(*akt);
-        }
-        else if (isupper(*akt)) {
-            *akt = tolower(*akt);
-        }
-        akt++;
-    }
-    return data;
-}
-
+#include <pthread.h>
+#include "../definition.h"
+#include "server.h"
+#include "vlakna/client/client.h"
+/**
+ * Spustac servera
+ * @param argc pocet argumentov
+ * @param argv argumenty
+ * @return chyby alebo uspesne ukoncenie
+ */
 int server_main(int argc, char** argv) {
     if (argc < 1) {
         printError("Sever je nutne spustit s nasledujucimi argumentmi: port.");
@@ -54,42 +41,57 @@ int server_main(int argc, char** argv) {
         printError("Chyba - bind.");
     }
 
-    //server bude prijimat nove spojenia cez socket serverSocket <sys/socket.h>
-    listen(serverSocket, 10);
+    int n = 100;
 
-    //server caka na pripojenie klienta <sys/socket.h>
-    struct sockaddr_in clientAddress;
-    socklen_t clientAddressLength = sizeof(clientAddress);
-    int clientSocket = accept(serverSocket, (struct sockaddr *)&clientAddress, &clientAddressLength);
+    pthread_mutex_t mutex;
+    pthread_mutex_init(&mutex, NULL);
+
+    pthread_cond_t dalsi;
+    pthread_cond_init(&dalsi, NULL);
+
+    WORLD world = world_create("", 0, 0, 0, 0);
+    int co_robit = 0;   //0 -> posli vzor, 1 -> uloz vzor
+    int client_socket = 0;
+
+    VLAKNO_DATA vd = {
+            &mutex,
+            world,
+            co_robit,
+            client_socket
+    };
+
+    //server bude prijimat nove spojenia cez socket serverSocket <sys/socket.h>
+    listen(serverSocket, n);
+
+    int koniec = 0;
+    while(!koniec) {
+
+        //server caka na pripojenie klienta <sys/socket.h>
+        struct sockaddr_in clientAddress;
+        socklen_t clientAddressLength = sizeof(clientAddress);
+        int clientSocket = accept(serverSocket, (struct sockaddr *) &clientAddress, &clientAddressLength);
+
+        if (clientSocket < 0) {
+            printError("Chyba - accept.");
+        }
+
+        //Uspesne sa pripojenie klienta
+        printf("Klient sa pripojil na server.\n");
+
+        vd.client_socket = clientSocket;
+
+        //vytvorit vlakno
+        pthread_t klient_vlakno;
+        pthread_create(&klient_vlakno, NULL, &client, &vd);
+        //pthread_join(klient_vlakno, NULL);
+
+    }
 
     //uzavretie pasivneho socketu <unistd.h>
     close(serverSocket);
-    if (clientSocket < 0) {
-        printError("Chyba - accept.");
-    }
 
-    //LOGIKA TU!!!!
-    printf("Klient sa pripojil na server.\n");
-    char buffer[BUFFER_LENGTH + 1];
-    buffer[BUFFER_LENGTH] = '\0';
-    int koniec = 0;
-    while (!koniec) {
-        //citanie dat zo socketu <unistd.h>
-        read(clientSocket, buffer, BUFFER_LENGTH);
-        if (strcmp(buffer, endMsg) != 0) {
-            printf("Klient poslal nasledujuce data:\n%s\n", buffer);
-            spracujData(buffer);
-            //zapis dat do socketu <unistd.h>
-            write(clientSocket, buffer, strlen(buffer) + 1);
-        }
-        else {
-            koniec = 1;
-        }
-    }
-    printf("Klient ukoncil komunikaciu.\n");
-
-    //uzavretie socketu klienta <unistd.h>
-    close(clientSocket);
+    pthread_mutex_destroy(&mutex);
+    pthread_cond_destroy(&dalsi);
 
     return (EXIT_SUCCESS);
 }

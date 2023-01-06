@@ -7,6 +7,8 @@
 #IncludeRegexTransform: 
 
 /home/hanko/tmp/tmp.Enb4A1lRTf/client/client.c
+pthread.h
+-
 client.h
 /home/hanko/tmp/tmp.Enb4A1lRTf/client/client.h
 ../definition.h
@@ -17,12 +19,6 @@ client.h
 /home/hanko/tmp/tmp.Enb4A1lRTf/world/vlakna/worldThreadData.h
 ../world/vlakna/worldUser/world_user.h
 /home/hanko/tmp/tmp.Enb4A1lRTf/world/vlakna/worldUser/world_user.h
-../world/vlakna/worldPlayer/world_player.h
-/home/hanko/tmp/tmp.Enb4A1lRTf/world/vlakna/worldPlayer/world_player.h
-string.h
--
-pthread.h
--
 
 /home/hanko/tmp/tmp.Enb4A1lRTf/client/client.h
 
@@ -42,6 +38,16 @@ policko/policko.h
 
 /home/hanko/tmp/tmp.Enb4A1lRTf/world/plocha/policko/policko.h
 
+/home/hanko/tmp/tmp.Enb4A1lRTf/world/vlakna/worldPlayer/world_player.c
+pthread.h
+-
+unistd.h
+-
+stdio.h
+-
+world_player.h
+/home/hanko/tmp/tmp.Enb4A1lRTf/world/vlakna/worldPlayer/world_player.h
+
 /home/hanko/tmp/tmp.Enb4A1lRTf/world/vlakna/worldPlayer/world_player.h
 ../worldThreadData.h
 /home/hanko/tmp/tmp.Enb4A1lRTf/world/vlakna/worldThreadData.h
@@ -54,9 +60,37 @@ bits/pthreadtypes.h
 ../../definition.h
 /home/hanko/tmp/tmp.Enb4A1lRTf/definition.h
 
+/home/hanko/tmp/tmp.Enb4A1lRTf/world/vlakna/worldUser/world_user.c
+pthread.h
+-
+stdio.h
+-
+malloc.h
+-
+world_user.h
+/home/hanko/tmp/tmp.Enb4A1lRTf/world/vlakna/worldUser/world_user.h
+
 /home/hanko/tmp/tmp.Enb4A1lRTf/world/vlakna/worldUser/world_user.h
 ../worldThreadData.h
 /home/hanko/tmp/tmp.Enb4A1lRTf/world/vlakna/worldThreadData.h
+../worldPlayer/world_player.h
+/home/hanko/tmp/tmp.Enb4A1lRTf/world/vlakna/worldPlayer/world_player.h
+
+/home/hanko/tmp/tmp.Enb4A1lRTf/world/world.c
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+world.h
+/home/hanko/tmp/tmp.Enb4A1lRTf/world/world.h
+plocha/plocha.h
+/home/hanko/tmp/tmp.Enb4A1lRTf/world/plocha/plocha.h
+mravce/mravec/mravec.h
+/home/hanko/tmp/tmp.Enb4A1lRTf/world/mravce/mravec/mravec.h
+mravce/mravce.h
+/home/hanko/tmp/tmp.Enb4A1lRTf/world/mravce/mravce.h
 
 /home/hanko/tmp/tmp.Enb4A1lRTf/world/world.h
 plocha/plocha.h

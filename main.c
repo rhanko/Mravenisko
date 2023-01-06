@@ -4,6 +4,12 @@
 #include <stdio.h>
 #include <string.h>
 
+/**
+ * Spustac
+ * @param argc pocet argumentov
+ * @param argv argumenty
+ * @return chyby alebo uspesne ukoncenie
+ */
 int main(int argc, char **argv) {
     if (argc < 2) {
         perror("Treba zadať aspoň jeden argument.\n");

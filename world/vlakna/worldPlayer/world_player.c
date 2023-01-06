@@ -8,88 +8,9 @@
 #include "world_player.h"
 
 /**
- * Procedura, ktora vypise farbu policok a umiestnenie mravcov
- * @param world svet, ktory sa ma vypisat
- */
-void world_vypis(WORLD *world) {
-    printf("Den cislo: %d\n", world->pocet_dni);
-    for (int i = 0; i < world->plocha.x; ++i) {
-        for (int j = 0; j < world->plocha.y; ++j) {
-            printf("%s", dajFarbuPolicka(&world->plocha.policka[i][j]));
-
-            BOOLEAN je_mravec = F;
-            for (int k = 0; k < world->mravce.pocet_mravcov; ++k) {
-                MRAVEC mravec = world->mravce.mravec[k];
-
-                if (mravec.x == i && mravec.y == j && mravec.existuje == T) {
-                    char cSmer;
-
-                    POLICKO *policko = &world->plocha.policka[i][j];
-
-                    if (world->logika == 0 ) {
-                        if (*policko == B) {
-                            if (mravec.smer == HORE) {
-                                cSmer = 'U';
-                            } else if (mravec.smer == DOLE) {
-                                cSmer = 'D';
-                            } else if (mravec.smer == VPRAVO) {
-                                cSmer = 'R';
-                            } else {
-                                cSmer = 'L';
-                            }
-                        } else {
-                            if (mravec.smer == HORE) {
-                                cSmer = 'D';
-                            } else if (mravec.smer == DOLE) {
-                                cSmer = 'H';
-                            } else if (mravec.smer == VPRAVO) {
-                                cSmer = 'L';
-                            } else {
-                                cSmer = 'R';
-                            }
-                        }
-                    } else {
-                        if (*policko == C) {
-                            if (mravec.smer == HORE) {
-                                cSmer = 'U';
-                            } else if (mravec.smer == DOLE) {
-                                cSmer = 'D';
-                            } else if (mravec.smer == VPRAVO) {
-                                cSmer = 'R';
-                            } else {
-                                cSmer = 'L';
-                            }
-                        } else {
-                            if (mravec.smer == HORE) {
-                                cSmer = 'D';
-                            } else if (mravec.smer == DOLE) {
-                                cSmer = 'H';
-                            } else if (mravec.smer == VPRAVO) {
-                                cSmer = 'L';
-                            } else {
-                                cSmer = 'R';
-                            }
-                        }
-                    }
-
-                    printf("%c\t", cSmer);
-                    je_mravec = T;
-                    break;
-                }
-            }
-
-            if (je_mravec == F) {
-                printf("\t");
-            }
-        }
-        printf("\n");
-    }
-}
-
-/**
- * Vlakno, ktore spravuje svet
- * @param data
- * @return
+ * Vlakno, ktore spravuje svet (respektíve, na ktorom beží "život")
+ * @param data data sveta
+ * @return 0
  */
 void *world_player(void *data) {
     WORLD_PLAYER_DATA *d = (WORLD_PLAYER_DATA *) data;

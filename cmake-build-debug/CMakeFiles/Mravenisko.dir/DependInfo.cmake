@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/home/hanko/tmp/tmp.Enb4A1lRTf/definition.c" "/home/hanko/tmp/tmp.Enb4A1lRTf/cmake-build-debug/CMakeFiles/Mravenisko.dir/definition.c.o"
   "/home/hanko/tmp/tmp.Enb4A1lRTf/main.c" "/home/hanko/tmp/tmp.Enb4A1lRTf/cmake-build-debug/CMakeFiles/Mravenisko.dir/main.c.o"
   "/home/hanko/tmp/tmp.Enb4A1lRTf/server/server.c" "/home/hanko/tmp/tmp.Enb4A1lRTf/cmake-build-debug/CMakeFiles/Mravenisko.dir/server/server.c.o"
+  "/home/hanko/tmp/tmp.Enb4A1lRTf/server/vlakna/client/client.c" "/home/hanko/tmp/tmp.Enb4A1lRTf/cmake-build-debug/CMakeFiles/Mravenisko.dir/server/vlakna/client/client.c.o"
   "/home/hanko/tmp/tmp.Enb4A1lRTf/world/mravce/mravce.c" "/home/hanko/tmp/tmp.Enb4A1lRTf/cmake-build-debug/CMakeFiles/Mravenisko.dir/world/mravce/mravce.c.o"
   "/home/hanko/tmp/tmp.Enb4A1lRTf/world/mravce/mravec/mravec.c" "/home/hanko/tmp/tmp.Enb4A1lRTf/cmake-build-debug/CMakeFiles/Mravenisko.dir/world/mravce/mravec/mravec.c.o"
   "/home/hanko/tmp/tmp.Enb4A1lRTf/world/plocha/plocha.c" "/home/hanko/tmp/tmp.Enb4A1lRTf/cmake-build-debug/CMakeFiles/Mravenisko.dir/world/plocha/plocha.c.o"

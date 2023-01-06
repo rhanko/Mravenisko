@@ -21,5 +21,7 @@ typedef struct world {
 WORLD world_create(char *nazov, int velkost_x, int velkost_y, int pocet_mravcov, int logika);
 void world_save(char *filename, WORLD *world, int typ);
 WORLD world_load(char *filename, char *nazov_sveta, int typ);
+void world_vypis(WORLD *world);
+int world_existuje(char *filename, char *nazov_sveta, int typ);
 
 #endif //MRAVENISKO_WORLD_H

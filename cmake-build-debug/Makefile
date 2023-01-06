@@ -250,6 +250,33 @@ server/server.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mravenisko.dir/build.make CMakeFiles/Mravenisko.dir/server/server.c.s
 .PHONY : server/server.c.s
 
+server/vlakna/client/client.o: server/vlakna/client/client.c.o
+
+.PHONY : server/vlakna/client/client.o
+
+# target to build an object file
+server/vlakna/client/client.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mravenisko.dir/build.make CMakeFiles/Mravenisko.dir/server/vlakna/client/client.c.o
+.PHONY : server/vlakna/client/client.c.o
+
+server/vlakna/client/client.i: server/vlakna/client/client.c.i
+
+.PHONY : server/vlakna/client/client.i
+
+# target to preprocess a source file
+server/vlakna/client/client.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mravenisko.dir/build.make CMakeFiles/Mravenisko.dir/server/vlakna/client/client.c.i
+.PHONY : server/vlakna/client/client.c.i
+
+server/vlakna/client/client.s: server/vlakna/client/client.c.s
+
+.PHONY : server/vlakna/client/client.s
+
+# target to generate assembly for a file
+server/vlakna/client/client.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mravenisko.dir/build.make CMakeFiles/Mravenisko.dir/server/vlakna/client/client.c.s
+.PHONY : server/vlakna/client/client.c.s
+
 world/mravce/mravce.o: world/mravce/mravce.c.o
 
 .PHONY : world/mravce/mravce.o
@@ -460,6 +487,9 @@ help:
 	@echo "... server/server.o"
 	@echo "... server/server.i"
 	@echo "... server/server.s"
+	@echo "... server/vlakna/client/client.o"
+	@echo "... server/vlakna/client/client.i"
+	@echo "... server/vlakna/client/client.s"
 	@echo "... world/mravce/mravce.o"
 	@echo "... world/mravce/mravce.i"
 	@echo "... world/mravce/mravce.s"

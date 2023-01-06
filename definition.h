@@ -7,9 +7,6 @@
 
 typedef enum {T, F} BOOLEAN;
 
-#define BUFFER_LENGTH 300
-extern char *endMsg;
-
 void printError(char *str);
 
 #endif //MRAVENISKO_DEFINITION_H
