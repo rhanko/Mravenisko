@@ -6,8 +6,6 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_C
   "/home/hanko/tmp/tmp.Enb4A1lRTf/client/client.c" "/home/hanko/tmp/tmp.Enb4A1lRTf/cmake-build-debug/CMakeFiles/Mravenisko.dir/client/client.c.o"
   "/home/hanko/tmp/tmp.Enb4A1lRTf/definition.c" "/home/hanko/tmp/tmp.Enb4A1lRTf/cmake-build-debug/CMakeFiles/Mravenisko.dir/definition.c.o"
-  "/home/hanko/tmp/tmp.Enb4A1lRTf/komunikacia/nacitavac.c" "/home/hanko/tmp/tmp.Enb4A1lRTf/cmake-build-debug/CMakeFiles/Mravenisko.dir/komunikacia/nacitavac.c.o"
-  "/home/hanko/tmp/tmp.Enb4A1lRTf/komunikacia/ukladac.c" "/home/hanko/tmp/tmp.Enb4A1lRTf/cmake-build-debug/CMakeFiles/Mravenisko.dir/komunikacia/ukladac.c.o"
   "/home/hanko/tmp/tmp.Enb4A1lRTf/main.c" "/home/hanko/tmp/tmp.Enb4A1lRTf/cmake-build-debug/CMakeFiles/Mravenisko.dir/main.c.o"
   "/home/hanko/tmp/tmp.Enb4A1lRTf/server/server.c" "/home/hanko/tmp/tmp.Enb4A1lRTf/cmake-build-debug/CMakeFiles/Mravenisko.dir/server/server.c.o"
   "/home/hanko/tmp/tmp.Enb4A1lRTf/server/vlakna/client/client.c" "/home/hanko/tmp/tmp.Enb4A1lRTf/cmake-build-debug/CMakeFiles/Mravenisko.dir/server/vlakna/client/client.c.o"

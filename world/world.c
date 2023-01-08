@@ -127,7 +127,6 @@ int hladaj(FILE *subor, char *nazov_sveta, int typ) {
 
                 if (strcmp(nazov_sveta, nazov_sveta_najdeny) == 0) {
                     return 0;
-                    break;
                 }
             }
         }
@@ -285,6 +284,7 @@ WORLD world_load(char *filename, char *nazov_sveta, int typ) {
         printf("Úspešne načítané.\n");
         return world;
     }
+    exit(5);
 }
 
 /**

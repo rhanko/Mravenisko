@@ -196,60 +196,6 @@ definition.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mravenisko.dir/build.make CMakeFiles/Mravenisko.dir/definition.c.s
 .PHONY : definition.c.s
 
-komunikacia/nacitavac.o: komunikacia/nacitavac.c.o
-
-.PHONY : komunikacia/nacitavac.o
-
-# target to build an object file
-komunikacia/nacitavac.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mravenisko.dir/build.make CMakeFiles/Mravenisko.dir/komunikacia/nacitavac.c.o
-.PHONY : komunikacia/nacitavac.c.o
-
-komunikacia/nacitavac.i: komunikacia/nacitavac.c.i
-
-.PHONY : komunikacia/nacitavac.i
-
-# target to preprocess a source file
-komunikacia/nacitavac.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mravenisko.dir/build.make CMakeFiles/Mravenisko.dir/komunikacia/nacitavac.c.i
-.PHONY : komunikacia/nacitavac.c.i
-
-komunikacia/nacitavac.s: komunikacia/nacitavac.c.s
-
-.PHONY : komunikacia/nacitavac.s
-
-# target to generate assembly for a file
-komunikacia/nacitavac.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mravenisko.dir/build.make CMakeFiles/Mravenisko.dir/komunikacia/nacitavac.c.s
-.PHONY : komunikacia/nacitavac.c.s
-
-komunikacia/ukladac.o: komunikacia/ukladac.c.o
-
-.PHONY : komunikacia/ukladac.o
-
-# target to build an object file
-komunikacia/ukladac.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mravenisko.dir/build.make CMakeFiles/Mravenisko.dir/komunikacia/ukladac.c.o
-.PHONY : komunikacia/ukladac.c.o
-
-komunikacia/ukladac.i: komunikacia/ukladac.c.i
-
-.PHONY : komunikacia/ukladac.i
-
-# target to preprocess a source file
-komunikacia/ukladac.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mravenisko.dir/build.make CMakeFiles/Mravenisko.dir/komunikacia/ukladac.c.i
-.PHONY : komunikacia/ukladac.c.i
-
-komunikacia/ukladac.s: komunikacia/ukladac.c.s
-
-.PHONY : komunikacia/ukladac.s
-
-# target to generate assembly for a file
-komunikacia/ukladac.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Mravenisko.dir/build.make CMakeFiles/Mravenisko.dir/komunikacia/ukladac.c.s
-.PHONY : komunikacia/ukladac.c.s
-
 main.o: main.c.o
 
 .PHONY : main.o
@@ -535,12 +481,6 @@ help:
 	@echo "... definition.o"
 	@echo "... definition.i"
 	@echo "... definition.s"
-	@echo "... komunikacia/nacitavac.o"
-	@echo "... komunikacia/nacitavac.i"
-	@echo "... komunikacia/nacitavac.s"
-	@echo "... komunikacia/ukladac.o"
-	@echo "... komunikacia/ukladac.i"
-	@echo "... komunikacia/ukladac.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

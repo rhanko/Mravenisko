@@ -224,36 +224,3 @@ int client_main(int argc, char **argv) {
     pthread_cond_destroy(&pPauza);
     return 0;
 }
-
-/*int client_main(int argc, char **argv) {
-
-
-
-
-    //LOGIKA TU
-    printf("Spojenie so serverom bolo nadviazane.\n");
-    char buffer[BUFFER_LENGTH + 1];
-    buffer[BUFFER_LENGTH] = '\0';
-    int koniec = 0;
-    while (!koniec) {
-        fgets(buffer, BUFFER_LENGTH, stdin);
-        char* pos = strchr(buffer, '\n');
-        if (pos != NULL) {
-            *pos = '\0';
-        }
-        //zapis dat do socketu <unistd.h>
-        write(sock, buffer, strlen(buffer) + 1);
-        if (strcmp(buffer, endMsg) != 0) {
-            //citanie dat zo socketu <unistd.h>
-            read(sock, buffer, BUFFER_LENGTH);
-            printf("Server poslal nasledujuce data:\n%s\n", buffer);
-        }
-        else {
-            koniec = 1;
-        }
-    }
-
-
-
-    return (EXIT_SUCCESS);
-}*/

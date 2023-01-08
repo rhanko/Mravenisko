@@ -6,32 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/hanko/tmp/tmp.Enb4A1lRTf/client/client.c
-pthread.h
--
-netdb.h
--
-stdlib.h
--
-strings.h
--
-stdio.h
--
-unistd.h
--
-string.h
--
-client.h
-/home/hanko/tmp/tmp.Enb4A1lRTf/client/client.h
-../world/vlakna/worldThreadData.h
-/home/hanko/tmp/tmp.Enb4A1lRTf/world/vlakna/worldThreadData.h
-../world/vlakna/worldUser/world_user.h
-/home/hanko/tmp/tmp.Enb4A1lRTf/world/vlakna/worldUser/world_user.h
-
-/home/hanko/tmp/tmp.Enb4A1lRTf/client/client.h
-../world/world.h
-/home/hanko/tmp/tmp.Enb4A1lRTf/world/world.h
-
 /home/hanko/tmp/tmp.Enb4A1lRTf/definition.h
 
 /home/hanko/tmp/tmp.Enb4A1lRTf/server/vlakna/client/client.c
@@ -42,6 +16,8 @@ stdio.h
 malloc.h
 -
 pthread.h
+-
+string.h
 -
 client.h
 /home/hanko/tmp/tmp.Enb4A1lRTf/server/vlakna/client/client.h
@@ -65,24 +41,6 @@ policko/policko.h
 /home/hanko/tmp/tmp.Enb4A1lRTf/world/plocha/policko/policko.h
 
 /home/hanko/tmp/tmp.Enb4A1lRTf/world/plocha/policko/policko.h
-
-/home/hanko/tmp/tmp.Enb4A1lRTf/world/vlakna/worldPlayer/world_player.h
-../worldThreadData.h
-/home/hanko/tmp/tmp.Enb4A1lRTf/world/vlakna/worldThreadData.h
-
-/home/hanko/tmp/tmp.Enb4A1lRTf/world/vlakna/worldThreadData.h
-bits/pthreadtypes.h
--
-../world.h
-/home/hanko/tmp/tmp.Enb4A1lRTf/world/world.h
-../../definition.h
-/home/hanko/tmp/tmp.Enb4A1lRTf/definition.h
-
-/home/hanko/tmp/tmp.Enb4A1lRTf/world/vlakna/worldUser/world_user.h
-../worldThreadData.h
-/home/hanko/tmp/tmp.Enb4A1lRTf/world/vlakna/worldThreadData.h
-../worldPlayer/world_player.h
-/home/hanko/tmp/tmp.Enb4A1lRTf/world/vlakna/worldPlayer/world_player.h
 
 /home/hanko/tmp/tmp.Enb4A1lRTf/world/world.h
 plocha/plocha.h

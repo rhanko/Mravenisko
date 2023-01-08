@@ -1,8 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/Mravenisko.dir/client/client.c.o"
   "CMakeFiles/Mravenisko.dir/definition.c.o"
-  "CMakeFiles/Mravenisko.dir/komunikacia/nacitavac.c.o"
-  "CMakeFiles/Mravenisko.dir/komunikacia/ukladac.c.o"
   "CMakeFiles/Mravenisko.dir/main.c.o"
   "CMakeFiles/Mravenisko.dir/server/server.c.o"
   "CMakeFiles/Mravenisko.dir/server/vlakna/client/client.c.o"
